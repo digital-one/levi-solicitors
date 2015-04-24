@@ -1,0 +1,45 @@
+h1,h2,h3,h4{
+	text-transform:uppercase;
+	@include font-size(48px);
+	font-weight:300;
+	line-height: 120%;
+	margin: 0 0 30px;
+	letter-spacing:-1px;
+	a &{
+		color: $dark-grey;
+	}
+}
+h2{
+	@include font-size(36px);
+}
+h3{
+	@include font-size(30px);
+}
+h4{
+	@include font-size(21px);
+	letter-spacing:-0.5px;
+}
+strong{
+	font-weight:700;
+}
+p,ul{
+	@include font-size(16px);
+	line-height: 140%;
+}
+p{
+	margin-bottom: 15px;
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+a{
+	text-decoration: none;
+	@include transition(all .3s ease);
+}
+
+@media #{$medium-up} { 
+
+}
+@media #{$large-up} { 
+
+}

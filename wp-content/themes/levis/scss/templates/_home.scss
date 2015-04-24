@@ -1,0 +1,38 @@
+#contact-nav{
+	@include centered-menu;
+	padding: 50px 0;
+	border-top:1px solid darken(white,65%);
+	li{
+		padding: 0 30px;
+		&:first-child{
+			padding-left:0;
+		}
+		&:last-child{
+			padding-right:0;
+		}
+	}
+	i{
+		color: $orange;
+		padding-right: 10px;
+	}
+	a{
+		&:link,&:visited{
+			color: white;
+		}
+		&:hover,&:active{
+			color: $orange;
+		}
+	}
+}
+#intro{
+	h2{
+		font-family: $georgia;
+		text-transform: none;
+		color: lighten($grey,20%);
+		@include font-size(22px);
+		margin-bottom: 15px;
+	}
+	p{
+		@include font-size(30px);
+	}
+}

@@ -1,0 +1,126 @@
+#affiliates-carousel{
+	padding: 40px 0 60px;
+	.item{
+		text-align: center;
+		height:138px;
+		display: block;
+		a{
+			display: inline-block;
+			width:auto;
+			margin:0 auto;
+		}
+		.logo{
+			display: block;
+			width:100%;
+			text-align: center;
+		}
+	}
+}
+#twitter-slider{
+	padding:36px 70px 36px 0px;
+	margin-bottom:40px;
+	background:url('../images/dotted-line.png') left top repeat-x;
+	.svg &{
+		background:url('../images/dotted-line.svg') left top repeat-x;
+	}
+	color: white;
+	position:relative;
+	&:before{
+		content:"";
+		width:90px;
+		height:38px;
+		background-color:black;
+		background-image:url('../images/twitter-bird.png');
+		background-position: center top;
+		background-size:auto 100%;
+		background-repeat:no-repeat;
+		@include abs-pos(0,auto,auto,50%);
+		margin-left:-45px;
+		margin-top: -20px;
+	}
+	&:after{
+		content:"";
+		width:100%;
+		height:2px;
+		display: block;
+		background:url('../images/dotted-line.png') left top repeat-x;
+		.svg &{
+			background:url('../images/dotted-line.svg') left top repeat-x;
+		}
+		@include abs-pos(auto,auto,0,0);
+	}
+	.slide{
+		background-color: black;
+		display: block;
+	}
+	a{
+		&:link,&:visited{
+			color: $orange;
+		}
+	}
+	.slick-list{
+		position: relative;
+		padding-left:80px;
+		&:before{
+			content:"";
+			display:block;
+			width:40px;
+			height:40px;
+			@include abs-pos(0,auto,auto,15px);
+			z-index: 999;
+			background:url('../images/levi-profile-icon.png') left top no-repeat;
+			background-size:100% auto;
+			.svg &{
+				background:url('../images/levi-profile-icon.svg') left top no-repeat;
+			}
+		}
+	}
+}
+#footer{
+	h4{
+		font-weight: 600;
+		color: white;
+		@include font-size(18px);
+		a{
+			&:link,&:visited{
+				color: white;
+			}
+		}
+	}
+}
+#footer-nav{
+	background:url('../images/dotted-line.png') left bottom repeat-x;
+	padding-bottom:40px;
+	margin-bottom:40px;
+	.svg &{
+		background:url('../images/dotted-line.svg') left bottom repeat-x;
+	}
+	ul{
+		a{
+			@include font-size(14px);
+			text-transform: uppercase;
+			&:link,&:visited{
+				color: darken(white,40%);	
+			}
+			&:hover,&:active{
+				color: white;
+			}
+		}
+	}
+}
+#footer-base{
+	text-align: center;
+	p,a:link,a:visited{
+		color: darken(white,40%);	
+	}
+	a:hover,a:active{
+		color: white;
+	}
+
+	margin-bottom: 60px;	
+	h4{
+		margin-bottom: 4px;
+	}
+}
+
+

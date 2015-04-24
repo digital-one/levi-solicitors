@@ -1,0 +1,179 @@
+.box{
+	display: block;
+	position: relative;
+	width:100%;
+	&.square, &.half, &.three-quarter{
+		&:before{
+			content:"";
+			padding-top:100%;
+			display: block;
+		}
+	}
+	&.half{
+		&:before{
+			padding-top: 50%;
+		}
+	}
+	&.three-quarter{
+		&:before{
+			padding-top:31.88%;
+		}
+	}
+	&.bottom-spaced{
+		padding-bottom: 0.625rem * 2;
+	}
+	h1,h2,h3{
+		line-height: 100%;
+		strong{
+			display: block;
+		}
+		&.success-icon,&.news-icon{
+			position: relative;
+			&:after{
+				content:"";
+				height:64px;
+				width:100px;
+				background-image:url('../images/success-icon.png');
+				background-position: right top;
+				background-repeat:no-repeat;
+				background-size: auto 100%;
+				@include abs-pos(50%,0,auto,auto);
+				margin-top: -32px;
+				.svg &{
+					background-image:url('../images/success-icon.svg');
+				}
+			}
+		}
+		&.news-icon{
+			&:after{
+				background-image:url('../images/news-icon.png');
+				.svg &{
+					background-image:url('../images/news-icon.svg');
+				}
+			}
+		}
+	}
+	.vcenter{
+		h2,h3,h4{
+			margin:0;
+		}
+	}
+	h1{
+		line-height: 90%;
+	}
+}
+
+.box-outer{
+	position: relative;
+	background-color: white;
+	.square &,.half &,.three-quarter &{
+		@include abs-pos(0,0.625em,0,0.625em);
+	}
+	.top &{
+		bottom: 0.625rem;
+	}
+	.bottom &{
+		top: 0.625rem;
+	}
+	.bottom-spaced.half &, .bottom-spaced.square &,  .bottom-spaced.three-quarter &{
+		bottom: 0.625rem * 2;
+	}
+	.orange &{
+		background-color: $orange
+	}
+}
+
+.box-link,.box-overlay{
+	@include abs-pos(0,0,0,0);
+	display: block;
+}
+.box-link{
+	&:hover{
+		.box-overlay{
+			background-color: $orange;
+		}
+	}
+}
+.box-overlay{
+	z-index: 1;
+	@include transition(background-color 0.3s ease);
+}
+.box-content{
+	position: relative;
+	width:100%;
+	height:100%;
+	z-index:2;
+	padding:25px;
+	.padding-2x &{
+		padding:50px;
+	}
+	.square &,.half &{
+		@include abs-pos(0,0,0,0);
+	}
+}
+
+.vcenter-wrap{
+	text-align: center;
+	height:100%;
+	&:before{
+		content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+	}
+	.vcenter{
+		vertical-align: middle;
+         display: inline-block;
+         width: 99%;
+         margin:0 auto;
+         text-align: left;
+	}
+}
+
+#contacts-bar{
+	text-align:center;
+	nav{
+		width: auto;
+		display: inline-block;
+		margin:0 auto;
+		color: $dark-grey;
+	}
+	span,ul,li{
+		display: inline-block;
+		float:left;
+	}
+	span,li{
+		line-height: 100%;
+		padding:0 20px;
+		position: relative;
+		&:after{
+			content:"";
+			display: block;
+			width:1px;
+			height: 20px;
+			background-color: darken($orange,10%);
+			@include abs-pos(50%,0,auto,auto);
+			margin-top:-10px;
+		}
+	}
+	li:last-child{
+		&:after{
+			display: none;
+		}
+	}
+	span{
+		font-weight: 700;
+	}
+	i{
+		color: white;
+		padding-right:10px;
+	}
+	a{
+		&:link,&:visited{
+			color: $dark-grey;
+		}
+		&:hover,&:active{
+			color: lighten($dark-grey,30%);
+		}
+	}
+}

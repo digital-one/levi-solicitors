@@ -1,0 +1,42 @@
+.profile{
+	position:relative;
+	padding: 0 0 0 180px;
+	@extend .clearfix;
+	figure{
+		display: block;
+		background-color:$grey;
+		width:145px;
+		height:145px;
+		@include border-radius(50%);
+		overflow:hidden;
+		@include abs-pos(0,auto,auto,0);
+		img{
+			width: 100%;
+			height:auto;
+		}
+	}
+	h4{
+		margin-bottom: 10px;
+		font-weight:400;
+	}
+	footer{
+		padding:10px 0 0;
+		li{
+			display: inline-block;
+			float:left;
+			padding-right:40px;
+			&:last-child{
+				padding-right:0;
+			}
+			i{
+				color: $orange;
+				padding-right:10px;
+			}
+			a{
+				&:link,&:visited{
+					color: $dark-grey;
+				}
+			}
+		}
+	}
+}

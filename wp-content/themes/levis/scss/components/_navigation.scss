@@ -1,0 +1,49 @@
+#nav{
+	margin: 56px 0 0;
+	float:right;
+	@include inline-menu;
+	@include wp-current-page-links{
+		color: $orange;
+		font-weight: 600;
+	}
+	li{
+		margin-left:40px;
+		&.menu-item-has-children{
+			a:after{
+				content:" +";
+				@include transition(color .3s ease);
+				color: white;
+			}
+			a:hover:after{
+				color: $orange
+			}
+			&.current-menu-item{
+				a:after{
+					color: $orange;
+				}
+			}
+			.sub-menu li{
+				a:after{
+					content:"";
+				}
+			}
+		}
+		.sub-menu{
+			@include abs-pos(60px,auto,auto,0);
+			display: none;
+		}
+	}
+	a{
+		&:link,&:visited{
+			@include font-size(18px);
+			color: white;
+			text-transform: uppercase;
+		}
+		&:hover,&:active{
+			color: $orange;
+			&:after{
+				color: $orange;
+			}
+		}
+	}
+}

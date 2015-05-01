@@ -60,8 +60,8 @@ function scripts_and_styles() {
 		//wp_enqueue_style( 'respgrid' );
 		
 		//register selectbox
-		//wp_register_script( 'selectbox', get_stylesheet_directory_uri() . '/library/js/libs/jquery.selectBox.js', array(), null, true );
-		//wp_enqueue_script( 'selectbox' );	
+		wp_register_script( 'selectbox', get_stylesheet_directory_uri() . '/js/jquery.selectBox.js', array(), null, false);
+		wp_enqueue_script( 'selectbox' );	
 
 		
 		//register all scripts
@@ -111,6 +111,52 @@ function register_menus() {
 	}
 	
 add_action( 'init', 'register_menus' );
+
+
+
+
+class subMenu extends Walker_Nav_Menu {
+      function end_el(&$output, $item, $depth=0, $args=array()) {
+    	
+	$args = array(
+    		'post_type' => 'page',
+    'child_of' => $item->object_id,
+     'post_parent' => $item->object_id,
+     'orderby' => 'menu_order',
+     'order' => 'ASC'
+     );
+    	//if($pages  = get_posts($args)):
+    	//	echo 'child='.count($pages).'<hr />';
+    //	endif;
+  	$query = new WP_Query( $args );
+	$total = $query->found_posts;
+	$half = ceil($total/2);
+	$count=0;
+	if ( $query->have_posts() ):
+		
+		$output.='<div class="sub-menu"><ul>';
+        while ( $query->have_posts() ) : $query->the_post();
+        $output.='<li><a href="'.get_permalink().'">'.get_the_title().'</a></li>';
+           $count++;
+           if($count==$half):
+           	$output.='</ul><ul>';
+           endif;
+        endwhile;
+    $output.='</ul>';
+endif; 
+ // $output .= "<div>kdkdkddkdkl</div></li>\n"; 
+  //endif;
+   //   $output .= apply_filters( 'walker_nav_menu_start_el', $output, $item, $depth, $args );
+
+ wp_reset_postdata();    
+  }
+}
+
+
+
+
+
+
 
 
 

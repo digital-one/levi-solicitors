@@ -1,9 +1,15 @@
 #contact-nav{
 	@include centered-menu;
-	padding: 50px 0;
+	padding: 30px 0;
 	border-top:1px solid darken(white,65%);
+	@include font-size(14px);
+	ul{
+		
+	}
 	li{
-		padding: 0 30px;
+		padding: 0 10px;
+		display: block;
+		width:100%;
 		&:first-child{
 			padding-left:0;
 		}
@@ -28,11 +34,40 @@
 	h2{
 		font-family: $georgia;
 		text-transform: none;
+		letter-spacing: 0;
 		color: lighten($grey,20%);
-		@include font-size(22px);
+		@include font-size(22px/100*75);
 		margin-bottom: 15px;
 	}
 	p{
-		@include font-size(30px);
+		@include font-size(30px/100*75);
+	}
+}
+
+@media #{$medium-up} { 
+
+	#contact-nav{
+		li{
+			width:auto;
+		}
+	}
+
+}
+
+@media #{$large-up} { 
+
+	#contact-nav{
+		@include font-size(16px);
+		padding: 50px 0;
+		li{
+			padding: 0 30px;
+		}
+
+	}
+
+	#intro{
+		p{
+			@include font-size(30px);
+		}
 	}
 }

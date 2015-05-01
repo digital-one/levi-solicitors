@@ -34,7 +34,7 @@
 </section>
 <!--/twitter feed-->
 <section id="footer-nav" class="row">
-		<div class="small-6 medium-3 columns">
+		<div class="small-12 medium-3 columns">
 			<nav>
 				<h4><a href="#">For You</a></h4>
 				<?php wp_nav_menu( array(
@@ -45,7 +45,7 @@
 		'after' => '' ) ); ?>
 	</nav>
 </div>
-		<div class="small-6 medium-3 columns">
+		<div class="small-12 medium-3 columns">
 			<nav>
 				<h4><a href="#">For Business</a></h4>
 				<?php wp_nav_menu( array(
@@ -56,18 +56,29 @@
 		'after' => '' ) ); ?>
 	</nav>
 		</div>
-			<div class="small-6 medium-3 columns">
+			<div class="small-12 medium-3 columns">
 			<nav>
 				<h4><a href="#">Our Team</a></h4>
-				<?php wp_nav_menu( array(
-		'theme_location' => 'footer-team-menu',
-		'menu_id'=> 'footer-team-menu',
-		'container' => 'nav',
-		'container_class' => '',
-		'after' => '' ) ); ?>
+				<ul>
+				<?php
+$args = array(
+	'post_type'=>'cpt_team',
+	'post_status' => 'publish',
+	'posts_per_page' => -1,
+	'orderby' => 'menu_order',
+	'order' => 'ASC'
+	);
+	query_posts($args);
+	if(have_posts()) :
+		while (have_posts() ) : the_post(); 
+	?>
+	<li><a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><?php the_title() ?></a></li>
+<?php endwhile ?>
+<?php endif ?>
+</ul>
 	</nav>
 		</div>
-			<div class="small-6 medium-3 columns">
+			<div class="small-12 medium-3 columns">
 			<nav>
 				<h4><a href="#">About</a></h4>
 				<?php wp_nav_menu( array(
@@ -81,10 +92,12 @@
 </section>
 <section id="footer-base">
 <div class="row">
+	<div class="small-12 columns">
 <h4>REGISTERED OFFICE LEEDS</h4>
-<p><small>33 St. Pauls Street, Leeds, LS1 2JJ | DX: 706957, Leeds Park Square | TELEPHONE <a href="tel:+441132449931">+44 (0) 113 244 9931</a> | FAX +44 (0) 113 297 1872</small></p>
+<p><small><span>33 St. Pauls Street, Leeds, LS1 2JJ</span><span>DX: 706957, Leeds Park Square</span><span>TELEPHONE <a href="tel:+441132449931">+44 (0) 113 244 9931</a></span><span>FAX +44 (0) 113 297 1872</span></small></p>
 <p><small>This firm is regulated by The Solicitors Regulation Authority. SRA 440411. A list of members is available at the registered office. Levi Solicitors LLP is a limited liability partnership. Registered No. 0C316402. The term "partner" if used, denotes a member of Levi Solicitors LLP or an employee or consultant of Levi LLP with equivalent standing and qualifications.</small></p>
 	</div>
+</div>
 </section>
 </footer>
 <!--/footer-->

@@ -1,11 +1,11 @@
 html{
 	//font-size: 62.5%;
 	background-image:url('../images/bg.jpg');
-	background-size:100% auto;
-	background-position:center top;
-	background-repeat:no-repeat;
+	//background-size:100% auto;
+	//background-position:center top;
+	//background-repeat:no-repeat;
 	//background-attachment: fixed;
-	//@include bg-cover;
+	@include bg-cover(true);
 	background-color: black;
 }
 body{

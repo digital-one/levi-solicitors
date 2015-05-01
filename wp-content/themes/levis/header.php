@@ -18,24 +18,32 @@
 <meta name="msapplication-TileColor" content="#d3492f">
 <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-<?php //gravity_form_enqueue_scripts(1, true); ?>
+<?php gravity_form_enqueue_scripts(1, true); ?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 	<div id="wrap">
 	<!-- header -->
 	<header id="header">
-		<h1 id="home-link">Levi Solicitors LLP</h1>
+		<div class="row">
+			<?php if(is_front_page()): ?>
+		<h1 id="home-link"><?php echo bloginfo('name'); ?></h1>
+	<?php else: ?>
+	<a href="<?php echo home_url() ?>" id="home-link" title="<?php echo bloginfo('name'); ?>"><?php echo bloginfo('name'); ?></a>
+<?php endif ?>
 		<!--nav-->
+		<a class="menu-toggle">Menu</a>
 		<nav id="nav">
 <?php wp_nav_menu( array(
 		'theme_location' => 'main-menu',
 		'menu_id'=> 'main-menu',
-		'container' => 'nav',
-		'container_class' => '',
-		'after' => '' ) ); ?>
+		'container' => '',
+		'container_class' => ''
+		));
+		 ?>
 		</nav>
 		<!--/nav-->
+	</div>
 </header>
 <!-- /header -->
 

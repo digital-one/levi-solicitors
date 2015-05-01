@@ -39,7 +39,7 @@
 }
 .slick-prev,.slick-next{
 	background-color: transparent;
-	width:14px;
+	width:15px;
 	height: 25px;
 	display: block;
 	outline:none;
@@ -52,7 +52,7 @@
 	background-position:left top;
 	background-repeat: no-repeat;
 	background-size: auto 100%;
-	@include abs-pos(50%,auto,auto,0);
+	@include abs-pos(50%,auto,auto,10px);
 	margin-top:-12px;
 	&:hover,&:active{
 		background-position: right top;
@@ -60,7 +60,7 @@
 }
 .slick-next{
 	left:auto;
-	right:0;
+	right:10px;
 	background-image:url('../images/next-arrow.png');
 	.svg &{
 		background-image:url('../images/next-arrow.svg');

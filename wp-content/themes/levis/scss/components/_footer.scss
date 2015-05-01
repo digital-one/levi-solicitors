@@ -1,9 +1,10 @@
 #affiliates-carousel{
-	padding: 40px 0 60px;
+	padding: 40px 50px 60px;
 	.item{
 		text-align: center;
 		height:138px;
 		display: block;
+		padding: 0 10px;
 		a{
 			display: inline-block;
 			width:auto;
@@ -13,11 +14,19 @@
 			display: block;
 			width:100%;
 			text-align: center;
-		}
+			img{
+				width:100%;
+				height:auto;
+				//max-width: none;
+			}
+		}			
 	}
 }
+#twitter-feed{
+	
+}
 #twitter-slider{
-	padding:36px 70px 36px 0px;
+	padding:36px 70px 36px 70px;
 	margin-bottom:40px;
 	background:url('../images/dotted-line.png') left top repeat-x;
 	.svg &{
@@ -27,16 +36,15 @@
 	position:relative;
 	&:before{
 		content:"";
-		width:90px;
-		height:38px;
-		background-color:black;
-		background-image:url('../images/twitter-bird.png');
-		background-position: center top;
-		background-size:auto 100%;
-		background-repeat:no-repeat;
-		@include abs-pos(0,auto,auto,50%);
-		margin-left:-45px;
-		margin-top: -20px;
+		display: block;
+		height:30px;
+		width:36px;
+		@include abs-pos(50%,auto,auto,10px);
+		margin-top: -15px;
+		background:url('../images/twitter-bird.png') top center no-repeat;
+		.svg &{
+			background:url('../images/twitter-bird.svg') top center no-repeat;
+		}
 	}
 	&:after{
 		content:"";
@@ -50,7 +58,7 @@
 		@include abs-pos(auto,auto,0,0);
 	}
 	.slide{
-		background-color: black;
+		//background-color: black;
 		display: block;
 	}
 	a{
@@ -58,29 +66,13 @@
 			color: $orange;
 		}
 	}
-	.slick-list{
-		position: relative;
-		padding-left:80px;
-		&:before{
-			content:"";
-			display:block;
-			width:40px;
-			height:40px;
-			@include abs-pos(0,auto,auto,15px);
-			z-index: 999;
-			background:url('../images/levi-profile-icon.png') left top no-repeat;
-			background-size:100% auto;
-			.svg &{
-				background:url('../images/levi-profile-icon.svg') left top no-repeat;
-			}
-		}
-	}
 }
 #footer{
 	h4{
 		font-weight: 600;
 		color: white;
-		@include font-size(18px);
+		margin-bottom: 10px;
+		@include font-size(16px);
 		a{
 			&:link,&:visited{
 				color: white;
@@ -96,9 +88,14 @@
 		background:url('../images/dotted-line.svg') left bottom repeat-x;
 	}
 	ul{
+		li{
+			margin-bottom: 5px;
+		}
 		a{
-			@include font-size(14px);
+			@include font-size(12px);
 			text-transform: uppercase;
+			line-height: 120%;
+			display: block;
 			&:link,&:visited{
 				color: darken(white,40%);	
 			}
@@ -107,20 +104,82 @@
 			}
 		}
 	}
+	nav{
+		margin-bottom: 30px;
+	}
 }
 #footer-base{
 	text-align: center;
+	margin-bottom: 40px;
 	p,a:link,a:visited{
-		color: darken(white,40%);	
+		color: darken(white,40%);
+		line-height: 120%;	
+	}
+	p{
+		span{
+			display: block;
+			line-height: 140%;
+			position: relative;
+			padding:0 10px;
+			width: 100%;
+		}
 	}
 	a:hover,a:active{
 		color: white;
 	}
-
-	margin-bottom: 60px;	
 	h4{
 		margin-bottom: 4px;
 	}
 }
 
+@media #{$medium-up} { 
 
+	#footer-nav{
+		nav{
+			margin-bottom:0;
+		}
+	}
+	#footer-base{
+		p{
+			span{
+				display: inline-block;
+				width:auto;
+				line-height: 100%;
+				&:after{
+				content:"";
+				width:1px;
+				height:10px;
+				display: block;
+				background-color: darken(white,40%);
+				@include abs-pos(50%,0,auto,auto);
+				margin-top: -5px;
+				}
+				&:last-child{
+					&:after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media #{$large-up} { 
+
+	#affiliates-carousel{
+		padding: 40px 0 60px;
+	}
+	#footer{
+		h4{
+			@include font-size(18px);
+		}
+	}
+	#footer-nav{
+		ul{
+			a{
+				@include font-size(14px);
+			}	
+		}
+	}
+}
+	

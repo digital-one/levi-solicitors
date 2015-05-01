@@ -1,13 +1,13 @@
 #header{
 	color: white;
-	padding: 0 36px;
+	//padding: 0 36px;
 	@extend .clearfix;
 	@extend %full-width;
 	border-bottom:1px solid black;
 	#home-link{
-		margin: 36px 0;
-		width: 256px;
-		height: 57px;
+		margin: 36px 0 36px 36px;
+		width: 240px;
+		height: 45px;
 		display:block;
 		float:left;
 		@extend %ir;
@@ -16,5 +16,30 @@
 		.svg &{
 			background:url('../images/levi-solicitors.svg') left top no-repeat;
 		}
+	}
+	a.menu-toggle{
+		display: block;
+		@include transition(none);
+		@include abs-pos(47.5px,36px,auto,auto);
+		width:22px;
+		height:22px;
+		background-image: url('../images/hamburger-icon.png');
+		background-position:left top;
+		background-repeat:no-repeat;
+		background-size:auto 100%;
+		@extend %ir;
+		cursor:pointer;
+		&.active{
+			background-position: right top;
+		}
 	}	
+}
+
+@media #{$xlarge-up} { 
+
+	#header{
+		a.menu-toggle{
+			display: none;
+		}
+	}
 }

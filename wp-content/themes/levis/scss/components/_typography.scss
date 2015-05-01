@@ -1,19 +1,19 @@
 h1,h2,h3,h4{
 	text-transform:uppercase;
-	@include font-size(48px);
+	@include font-size(48px/100*75);
 	font-weight:300;
 	line-height: 120%;
-	margin: 0 0 30px;
+	margin: 0 0 20px;
 	letter-spacing:-1px;
 	a &{
 		color: $dark-grey;
 	}
 }
 h2{
-	@include font-size(36px);
+	@include font-size(36px/100*75);
 }
 h3{
-	@include font-size(30px);
+	@include font-size(28px/100*75);
 }
 h4{
 	@include font-size(21px);
@@ -23,23 +23,53 @@ strong{
 	font-weight:700;
 }
 p,ul{
-	@include font-size(16px);
+	
 	line-height: 140%;
 }
 p{
+	@include font-size(16px);
 	margin-bottom: 15px;
 	&:last-child{
 		margin-bottom: 0;
 	}
 }
+small{
+	@include font-size(12px);
+	line-height: 120% !important;
+}
 a{
 	text-decoration: none;
 	@include transition(all .3s ease);
+	&:link,&:visited{
+		color: $dark-grey;
+	}
+	&:hover,&:active{
+		color: $orange;
+	}
+	.dotted-links &{
+		&:link,&:visited{
+			border-bottom: 1px dotted $dark-grey;
+		}
+		&:hover,&:active{
+			border-bottom: 1px dotted $orange;
+		}
+	}
 }
 
-@media #{$medium-up} { 
-
+@media #{$large-up} { 
+	h1,h2,h3{
+		margin:0 0 30px;
+	}
+	h1{
+		@include font-size(48px);
+	}
+	h2{
+		@include font-size(36px);
+	}
+	h3{
+		@include font-size(28px);
+	}
 }
 @media #{$large-up} { 
-
+	
 }

@@ -4,23 +4,13 @@
 <!--main content-->
 <main id="main" role="main" class="small-12 medium-9 columns">
 <div class="row">
-<!--header box-->
-<div class="small-12 columns bottom-spaced box padding-2x three-quarter">
-
-<div class="box-outer" style="background-image:url('<?php echo get_template_directory_uri(); ?>/images/civil-litigation-bg.jpg');">
-	<div class="box-content">
-		<span class="vcenter-wrap">
-			<span class="vcenter"><h1>CIVIL <strong>LITIGATION</strong></h1><a href="#" class="button">Get in touch</a></span>
-		</span>
-	</div>
-	</div>
-
-</div>
-<!--/header box-->
+<?php get_template_part('partials/content','page-title' );  ?>
 <!--article-->
 <div class="small-12 columns bottom-spaced box padding-2x">
 	<div class="box-outer">
+	<!-- parent wrapping section -->
 <div class="box-content">
+	<!-- 2 column sub section -->
 <section class="section">
 <h2><strong>What we do</strong></h2>
 <div class="row">
@@ -34,15 +24,19 @@
 </div>
 </div>
 </section>
+<!-- / 2 column sub section -->
+<!-- 2 column sub section -->
 <section>
 <h2><strong>How we can help</strong></h2>
 <div class="row">
 <div class="small-12 large-6 columns">
+	<h3>Column Title</h3>
 <p>We regularly resolve a whole range of disputes for clients in the UK and overseas, in areas such as civil and commercial litigation, property disputes, insurance litigation, partnerships and inheritance/Trust disputes.</p>
 <p>Our group of specialist civil litigation and dispute resolution lawyers can assist and advise at any stage of a conflict including mediation through to interim remedies, court action and injunctions.􏰃We give you robust, clear and practical advice in the context of your individual needs and objectives.</p>
 <p>Although our team has extensive court experience, we understand the importance of exploring alternatives to litigation where possible.􏰃We will discuss with you whether formal mediation or other forms of alternative dispute resolution are appropriate.􏰃We regularly utilise mediation as an effective way of proactively resolving disputes cost effectively, where appropriate.</p>
 </div>
 <div class="small-12 large-6 columns">
+	<h3>Column Title</h3>
 <p><strong>Our team of experienced litigators has wide experience and expertise in an extensive range of􏰃 civil litigation, including:􏰃􏰃</strong></p>
 <ul class="bullet-list">
 <li>Alternative Dispute Resolution ("ADR") / Mediation</li>
@@ -63,7 +57,22 @@
 </div>
 </div>
 </section>
+<!-- / 2 column sub section -->
+<!-- 1 column sub section -->
+<section>
+<div class="row">
+<div class="small-12 large-6 columns">
+	<h2><strong>How we can help</strong></h2>
+	<p>We regularly resolve a whole range of disputes for clients in the UK and overseas, in areas such as civil and commercial litigation, property disputes, insurance litigation, partnerships and inheritance/Trust disputes.</p>
+<p>Our group of specialist civil litigation and dispute resolution lawyers can assist and advise at any stage of a conflict including mediation through to interim remedies, court action and injunctions.􏰃We give you robust, clear and practical advice in the context of your individual needs and objectives.</p>
+<p>Although our team has extensive court experience, we understand the importance of exploring alternatives to litigation where possible.􏰃We will discuss with you whether formal mediation or other forms of alternative dispute resolution are appropriate.􏰃We regularly utilise mediation as an effective way of proactively resolving disputes cost effectively, where appropriate.</p>
 </div>
+</div>
+</section>
+<!-- / 1 column sub section -->
+</div>
+<!-- /parent wrapping section -->
+<!-- expert advice section -->
 <section class="tint box">
 <div class="box-content">
 <h2><strong>Expert Advice</strong></h2>
@@ -76,12 +85,15 @@ Nia is a Partner within the firm’s Professional Indemnity department and works
 </div>
 </div>
 </section>
+<!-- /expert advice section -->
+<!-- service sign off cta -->
 <section>
 <div class="box-content">
 <p>We offer a FREE civil litigation case assessment service and advise about funding options including No Win – No Fee. If you would like more information about the services the civil litigation and dispute resolution team can offer please call 0113 2449931 or click here to make an enquiry.</p>
 <a href="#" class="button">Get in touch</a>
 </div>
 </section>
+<!-- /service sign off cta -->
 <!--services carousel-->
 <section class="tint">
 <h2 class="band"><strong>Our Services</strong></h2>
@@ -108,7 +120,7 @@ Nia is a Partner within the firm’s Professional Indemnity department and works
 <div class="small-12 columns square box bottom-spaced"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3>Our <strong>Team</strong></h3></span></span></span><span class="box-overlay"></span><span class="box-image" style="background-image:url('<?php echo get_template_directory_uri(); ?>/images/team-bg.jpg');"></span></a></div></div>
 <!--/box-->
 	<!--box-->
-<div class="small-12 columns square box orange bottom-spaced"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3 class="success-icon">Our <strong>Success</strong></h3></span></span></span><span class="box-overlay"></span></a></div></div>
+<div class="small-12 columns square box orange bottom-spaced icon success"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3 class="success-icon">Our <strong>Success</strong></h3></span></span></span><span class="box-overlay"></span></a></div></div>
 <!--/box-->
 	<!--box-->
 <div class="small-12 columns square box"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3>Our <strong>History</strong></h3></span></span></span><span class="box-overlay"></span><span class="box-image" style="background-image:url('<?php echo get_template_directory_uri(); ?>/images/our-history-bg.jpg');"></span></a></div></div>

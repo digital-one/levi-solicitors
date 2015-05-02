@@ -3910,8 +3910,8 @@ h2 {
 
 /* line 15, ../scss/components/_typography.scss */
 h3 {
-  font-size: 21.0px;
-  font-size: 1.3125rem;
+  font-size: 19.5px;
+  font-size: 1.21875rem;
 }
 
 /* line 18, ../scss/components/_typography.scss */
@@ -3993,8 +3993,8 @@ a:hover, a:active {
 
   /* line 69, ../scss/components/_typography.scss */
   h3 {
-    font-size: 28px;
-    font-size: 1.75rem;
+    font-size: 26px;
+    font-size: 1.625rem;
   }
 }
 /* line 1, ../scss/components/_global.scss */

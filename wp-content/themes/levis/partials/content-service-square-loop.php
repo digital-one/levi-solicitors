@@ -1,0 +1,4 @@
+	<!--box-->
+	<?php list($src,$w,$h) = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'square-image'); ?>
+<div class="small-12 medium-3 large-3 columns square box<?php if($count == $numberposts):?> end<?php endif ?>"><div class="box-outer"><a href="<?php the_permalink() ?>" class="box-link" title="<?php the_title() ?>"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3><?php echo style_heading(get_the_title()) ?></h3></span></span></span><span class="box-overlay"></span><span class="box-image"  style="background-image:url('<?php echo $src ?>');"></span></a></div></div>
+<!--/box-->

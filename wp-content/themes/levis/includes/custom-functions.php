@@ -154,7 +154,18 @@ endif;
 
 
 
-
+function style_heading($heading){
+	$words = explode(' ',$heading);
+	$total = count($words);
+	$last = end($words);
+	unset($words[$total-1]);
+	$output = "";
+	foreach($words as $word):
+		$output.=$word.' ';
+		endforeach;
+		$output.='<strong>'.$last.'</strong>';
+	return $output;
+}
 
 
 

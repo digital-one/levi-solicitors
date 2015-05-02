@@ -13,7 +13,7 @@ h2{
 	@include font-size(36px/100*75);
 }
 h3{
-	@include font-size(28px/100*75);
+	@include font-size(26px/100*75);
 }
 h4{
 	@include font-size(21px);
@@ -67,7 +67,7 @@ a{
 		@include font-size(36px);
 	}
 	h3{
-		@include font-size(28px);
+		@include font-size(26px);
 	}
 }
 @media #{$large-up} { 

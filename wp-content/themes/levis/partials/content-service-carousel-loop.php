@@ -1,0 +1,2 @@
+<?php list($src,$w,$h) = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'square-image'); ?>
+<div class="item"><a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><figure><img src="<?php echo $src ?>" /></figure><span><?php the_title() ?></span></a></div>

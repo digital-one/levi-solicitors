@@ -8,6 +8,147 @@
 <!--article-->
 <div class="small-12 columns bottom-spaced box padding-2x">
 	<div class="box-outer">
+		<?php
+		//section loop
+		if(have_rows('page_sections_rptr')):
+			while(have_rows('page_sections_rptr')):
+				the_row();
+			$section_type = get_sub_field('section_type');
+			$section_title = get_sub_field('section_title');
+			$section_col_1_title = get_sub_field('section_column_one_title');
+			$section_col_1 = get_sub_field('section_column_one');
+			$section_col_2_title = get_sub_field('section_column_two_title');
+			$section_col_2 = get_sub_field('section_column_two');
+			$section_team_member = get_sub_field('section_team_member');
+			switch($section_type){
+				case 'wrapping':
+				?>
+				<div class="box-content">
+				<?php
+				//sub section loop
+				if( have_rows('section_sub_sections') ): //nested repeater field
+					while( have_rows('section_sub_sections')):
+					the_row();
+					$sub_section_type = get_sub_field('sub_section_type');
+					$title = get_sub_field('sub_section_title');
+					$col_1_title = get_sub_field('sub_section_column_one_title');
+					$col_1 = get_sub_field('sub_section_column_one');
+					$col_2_title = get_sub_field('sub_section_column_two_title');
+					$col_2 = get_sub_field('sub_section_column_two');
+					switch($sub_section_type){
+						case 'one-column':
+						?>
+						<!-- 1 column sub section -->
+						<section class="section">
+						<div class="row">
+		<div class="small-12 columns">
+			<?php if(!empty($title)): ?>
+			<h2><strong><?php echo $title ?></strong></h2>
+		<?php endif ?>
+			<?php echo $col_1 ?>
+		</div>
+		</div>
+	</section>
+						<!-- /1 column sub section -->
+						<?php
+						break;
+						case 'two-column':
+						?>
+		<!-- 2 column sub section -->
+<section class="section">
+	<?php if(!empty($title)): ?>
+<h2><strong><?php echo $title ?></strong></h2>
+<?php endif ?>
+<div class="row">
+<div class="small-12 large-6 columns bullet-list">
+	<?php if(!empty($col_1_title)): ?>
+	<h4><strong><?php echo $col_1_title ?></strong></h4>
+<?php endif; ?>
+	<?php echo $col_1 ?>
+<?php /*<p>In everyday life it is inevitable that disputes will sometimes occur. When conflicts do arise, they need specialist help to resolve them.􏰃Levi Solicitors will go that extra mile to understand your concerns and to protect and advance your interests.􏰃</p>
+<p>As a leading law firm we take a no-nonsense, pro-active approach whilst retaining the personal touch.</p> */ ?>
+</div>
+<div class="small-12 large-6 columns bullet-list">
+	<?php if(!empty($col_2_title)): ?>
+	<h4><strong><?php echo $col_2_title ?></strong></h4>
+<?php endif; ?>
+	<?php echo $col_2 ?>
+<?php /*<p>We take care to understand your individual needs and our emphasis is on client care and seeing things through with you to a successful outcome.􏰃</p>
+<p>Levi Solicitors'􏰃litigation team has the experience to ensure you achieve the best possible outcome.</p> */ ?>
+</div>
+</div>
+</section>
+<!-- / 2 column sub section -->
+						<?php
+						break;
+						}
+					endwhile;
+					endif;
+?>
+</div>
+<?php
+				break;
+				case 'one-column':
+				?>
+<section class="section">
+<div class="box-content">
+<?php if(!empty($section_title)):?>
+	<h2><strong><?php echo $section_title; ?></strong></h2>
+	 <?php endif ?>
+<?php echo $section_col_1 ?>
+</div>
+</section>
+				<?php
+				break;
+				case 'two-column':
+				?>
+<section class="section">
+	<div class="box-content">
+<?php if(!empty($section_title)):?>
+	<h2><strong><?php echo $section_title; ?></strong></h2>
+	 <?php endif ?>
+<div class="row">
+<div class="small-12 large-6 columns bullet-list">
+	<?php if(!empty($section_col_1_title)):?>
+	<h4><strong><?php echo $section_col_1_title; ?></strong></h4>
+	 <?php endif ?>
+<?php echo $section_col_1 ?>
+</div>
+<div class="small-12 large-6 columns bullet-list">
+	<?php if(!empty($section_col_2_title)):?>
+	<h4><strong><?php echo $section_col_2_title; ?></strong></h4>
+	 <?php endif ?>
+<?php echo $section_col_1 ?>
+</div>
+</div>
+</div>
+</section>
+				<?php
+				break;
+				case 'expert-advice':
+				$member = get_post($section_team_member);
+				?>
+<section class="tint box">
+<div class="box-content">
+<h2><strong>Expert Advice</strong></h2>
+<div class="team-profile profile">
+	<?php list($src,$w,$h) = wp_get_attachment_image_src(get_post_thumbnail_id($member->ID),'profile-image'); ?>
+<figure><img src="<?php echo $src ?>" title="<?php echo $member->post_title ?>" /></figure>
+<h4><strong><?php echo $member->post_title ?></strong><?php echo get_field('team_job_title',$member->ID) ?></h4>
+<div class="bullet-list"><?php echo $member->post_content ?></div>
+<footer><ul class="meta"><li><i class="fa fa-phone-square"></i><a href="tel:<?php echo str_replace(' ','',get_field('team_tel',$member->ID)) ?>"><?php echo get_field('team_tel',$member->ID) ?></a></li><li><i class="fa fa-envelope"></i><a href="mailto:<?php echo get_field('team_email',$member->ID); ?>"><?php echo get_field('team_email',$member->ID); ?></a></li></ul></footer>
+</div>
+</div>
+</section>
+				<?php
+				break;
+				}
+				endwhile;
+				endif;
+				?>
+
+<?php
+/*
 	<!-- parent wrapping section -->
 <div class="box-content">
 	<!-- 2 column sub section -->
@@ -86,6 +227,8 @@ Nia is a Partner within the firm’s Professional Indemnity department and works
 </div>
 </section>
 <!-- /expert advice section -->
+*/
+?>
 <!-- service sign off cta -->
 <section>
 <div class="box-content">
@@ -99,10 +242,29 @@ Nia is a Partner within the firm’s Professional Indemnity department and works
 <h2 class="band"><strong>Our Services</strong></h2>
 <div class="box-content">
 <div id="services-carousel">
+	<?php
+	$args = array(
+		'post_type'=>'page',
+		'post_status' => 'publish',
+		'post_parent' => $post->post_parent,
+		'post__not_in' => array($post->ID),
+		'orderby' => 'menu_order',
+		'order' => 'ASC'
+		);
+	query_posts($args);
+	if(have_posts()) :
+		while (have_posts() ) : the_post(); 
+			 get_template_part('partials/content','service-carousel-loop' ); 
+	endwhile;
+	endif;
+	wp_reset_query();
+?>
+<?php /*
 <div class="item"><a href=""><figure><img src="<?php echo get_template_directory_uri(); ?>/images/clinical-negligence.jpg" /></figure><span>Clinical Negligence</span></a></div>
 <div class="item"><a href=""><figure><img src="<?php echo get_template_directory_uri(); ?>/images/immigration.jpg" /></figure><span>Immigration</span></a></div>
 <div class="item"><a href=""><figure><img src="<?php echo get_template_directory_uri(); ?>/images/personal-injury.jpg" /></figure><span>Personal Injury</span></a></div>
 <div class="item"><a href=""><figure><img src="<?php echo get_template_directory_uri(); ?>/images/personal-injury.jpg" /></figure><span>Personal Injury</span></a></div>
+*/ ?>
 </div>
 </div>
 </section>
@@ -113,21 +275,7 @@ Nia is a Partner within the firm’s Professional Indemnity department and works
 </div>
 </main>
 <!--/main content-->
-<!--sidebar-->
-<aside class="small-12 medium-3 columns">
-<div class="row">
-	<!--box-->
-<div class="small-12 columns square box bottom-spaced"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3>Our <strong>Team</strong></h3></span></span></span><span class="box-overlay"></span><span class="box-image" style="background-image:url('<?php echo get_template_directory_uri(); ?>/images/team-bg.jpg');"></span></a></div></div>
-<!--/box-->
-	<!--box-->
-<div class="small-12 columns square box orange bottom-spaced icon success"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3 class="success-icon">Our <strong>Success</strong></h3></span></span></span><span class="box-overlay"></span></a></div></div>
-<!--/box-->
-	<!--box-->
-<div class="small-12 columns square box"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3>Our <strong>History</strong></h3></span></span></span><span class="box-overlay"></span><span class="box-image" style="background-image:url('<?php echo get_template_directory_uri(); ?>/images/our-history-bg.jpg');"></span></a></div></div>
-<!--/box-->
-</div>
-</aside>
-<!--/sidebar-->
+<?php get_sidebar('page') ?>
 </div>
 <!--/row-->
 <!--row-->

@@ -4,19 +4,7 @@
 <!--main content-->
 <main id="main" role="main" class="small-12 medium-9 columns">
 <div class="row">
-<!--header box-->
-<div class="small-12 columns bottom-spaced box padding-2x three-quarter">
-
-<div class="box-outer" style="background-image:url('<?php echo get_template_directory_uri(); ?>/images/our-news-header-bg.jpg');">
-	<div class="box-content">
-		<span class="vcenter-wrap">
-			<span class="vcenter"><h1>OUR <strong>NEWS</strong></h1><a href="#" class="button">Get in touch</a></span>
-		</span>
-	</div>
-	</div>
-
-</div>
-<!--/header box-->
+<?php get_template_part('partials/content','page-title' );  ?>
 <!--article-->
 <div class="small-12 columns bottom-spaced box padding-2x">
 	<div class="box-outer">

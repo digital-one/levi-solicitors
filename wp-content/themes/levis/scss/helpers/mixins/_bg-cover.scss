@@ -1,5 +1,5 @@
-	@mixin bg-cover($fixed:false){
-		background-position: top center;
+	@mixin bg-cover($fixed:false,$position:top center){
+		background-position: $position;
 		@if $fixed == true{
 		 background-attachment: fixed;
 		}

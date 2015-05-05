@@ -3513,7 +3513,7 @@ body {
   padding: 0 10px;
 }
 /* line 8, ../scss/components/_footer.scss */
-#affiliates-carousel .item a {
+#affiliates-carousel .item a, #affiliates-carousel .item span {
   display: inline-block;
   width: auto;
   margin: 0 auto;
@@ -4112,39 +4112,68 @@ a:hover, a:active {
   max-width: 100%;
 }
 /* line 6, ../scss/components/_boxes.scss */
-.box.square:before, .box.half:before, .box.three-quarter:before {
+.box.square:before, .box.box-80-pct:before, .box.half:before, .box.half-80-pct:before, .box.three-quarter:before {
   content: "";
   padding-top: 50%;
   display: block;
 }
 /* line 11, ../scss/components/_boxes.scss */
-#intro .box.square:before, #intro .box.half:before, #intro .box.three-quarter:before {
+#intro .box.square:before, #intro .box.box-80-pct:before, #intro .box.half:before, #intro .box.half-80-pct:before, #intro .box.three-quarter:before {
   padding-top: 0;
 }
-/* line 16, ../scss/components/_boxes.scss */
+/* line 17, ../scss/components/_boxes.scss */
+.box.box-80-pct:before {
+  padding-top: 80%;
+}
+/* line 21, ../scss/components/_boxes.scss */
 .box.square {
   padding-bottom: 1.25rem;
 }
-/* line 20, ../scss/components/_boxes.scss */
+/* line 25, ../scss/components/_boxes.scss */
 .box.half:before {
   padding-top: 50%;
 }
-/* line 25, ../scss/components/_boxes.scss */
+/* line 30, ../scss/components/_boxes.scss */
+.box.half-80-pct:before {
+  padding-top: 40%;
+}
+/* line 35, ../scss/components/_boxes.scss */
 .box.three-quarter:before {
   padding-top: 50%;
 }
-/* line 29, ../scss/components/_boxes.scss */
+/* line 39, ../scss/components/_boxes.scss */
 .box.bottom-spaced {
   padding-bottom: 1.25rem;
 }
-/* line 33, ../scss/components/_boxes.scss */
+/* line 42, ../scss/components/_boxes.scss */
+.box .box-icon {
+  display: block;
+  width: 69px;
+  height: 69px;
+  top: 50%;
+  right: 25px;
+  bottom: auto;
+  left: auto;
+  position: absolute;
+  margin-top: -34px;
+  overflow: hidden;
+  z-index: 3;
+}
+/* line 50, ../scss/components/_boxes.scss */
+.box .box-icon img {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: none;
+}
+/* line 58, ../scss/components/_boxes.scss */
 .box.icon h3, .box.icon h4 {
   position: relative;
 }
-/* line 35, ../scss/components/_boxes.scss */
+/* line 60, ../scss/components/_boxes.scss */
 .box.icon h3:after, .box.icon h4:after {
   content: "";
-  height: 64px;
+  height: 69px;
   width: 69px;
   background-image: url("../images/success-icon.png");
   background-position: left top;
@@ -4158,83 +4187,83 @@ a:hover, a:active {
   display: block;
   margin-top: -32px;
 }
-/* line 46, ../scss/components/_boxes.scss */
+/* line 71, ../scss/components/_boxes.scss */
 .svg .box.icon h3:after, .svg .box.icon h4:after {
   background-image: url("../images/success-icon.svg");
 }
-/* line 53, ../scss/components/_boxes.scss */
+/* line 78, ../scss/components/_boxes.scss */
 .box.icon.news h3:after, .box.icon.news h4:after {
   background-image: url("../images/news-icon.png");
   width: 55px;
   height: 64px;
   margin-top: -32px;
 }
-/* line 58, ../scss/components/_boxes.scss */
+/* line 83, ../scss/components/_boxes.scss */
 .svg .box.icon.news h3:after, .svg .box.icon.news h4:after {
   background-image: url("../images/news-icon.svg");
 }
-/* line 66, ../scss/components/_boxes.scss */
+/* line 91, ../scss/components/_boxes.scss */
 .box.icon.press h3:after, .box.icon.press h4:after {
   background-image: url("../images/press-release-icon.png");
   width: 64px;
   height: 55px;
   margin-top: -27px;
 }
-/* line 71, ../scss/components/_boxes.scss */
+/* line 96, ../scss/components/_boxes.scss */
 .svg .box.icon.press h3:after, .svg .box.icon.press h4:after {
   background-image: url("../images/press-release-icon.svg");
 }
-/* line 79, ../scss/components/_boxes.scss */
+/* line 104, ../scss/components/_boxes.scss */
 .box.icon.charity h3:after, .box.icon.charity h4:after {
   background-image: url("../images/charity-icon.png");
   width: 64px;
   height: 55px;
   margin-top: -27px;
 }
-/* line 84, ../scss/components/_boxes.scss */
+/* line 109, ../scss/components/_boxes.scss */
 .svg .box.icon.charity h3:after, .svg .box.icon.charity h4:after {
   background-image: url("../images/charity-icon.svg");
 }
-/* line 92, ../scss/components/_boxes.scss */
+/* line 117, ../scss/components/_boxes.scss */
 .box.icon.location h3:after, .box.icon.location h4:after {
   background-image: url("../images/location-icon.png");
   width: 64px;
   height: 64px;
   margin-top: -32px;
 }
-/* line 97, ../scss/components/_boxes.scss */
+/* line 122, ../scss/components/_boxes.scss */
 .svg .box.icon.location h3:after, .svg .box.icon.location h4:after {
   background-image: url("../images/location-icon.svg");
 }
-/* line 105, ../scss/components/_boxes.scss */
+/* line 130, ../scss/components/_boxes.scss */
 .box.icon.twitter h3:after, .box.icon.twitter h4:after {
   background-image: url("../images/twitter-icon.png");
   width: 65px;
   height: 54px;
   margin-top: -27px;
 }
-/* line 110, ../scss/components/_boxes.scss */
+/* line 135, ../scss/components/_boxes.scss */
 .svg .box.icon.twitter h3:after, .svg .box.icon.twitter h4:after {
   background-image: url("../images/twitter-icon.svg");
 }
-/* line 117, ../scss/components/_boxes.scss */
+/* line 142, ../scss/components/_boxes.scss */
 .box h1, .box h2, .box h3, .box h4 {
   line-height: 100%;
 }
-/* line 119, ../scss/components/_boxes.scss */
+/* line 144, ../scss/components/_boxes.scss */
 .box h1 strong, .box h2 strong, .box h3 strong, .box h4 strong {
   display: block;
 }
-/* line 124, ../scss/components/_boxes.scss */
+/* line 149, ../scss/components/_boxes.scss */
 .box .vcenter h2, .box .vcenter h3, .box .vcenter h4 {
   margin: 0;
 }
-/* line 128, ../scss/components/_boxes.scss */
+/* line 153, ../scss/components/_boxes.scss */
 .box h1 {
   line-height: 90%;
 }
 
-/* line 133, ../scss/components/_boxes.scss */
+/* line 158, ../scss/components/_boxes.scss */
 .box-outer {
   position: relative;
   background-color: white;
@@ -4246,30 +4275,30 @@ a:hover, a:active {
   -o-background-size: cover;
   background-size: cover;
 }
-/* line 138, ../scss/components/_boxes.scss */
-.square .box-outer, .half .box-outer, .three-quarter .box-outer {
+/* line 163, ../scss/components/_boxes.scss */
+.square .box-outer, .box-80-pct .box-outer, .half .box-outer, .half-80-pct .box-outer, .three-quarter .box-outer {
   top: 0;
   right: 0.625em;
   bottom: 0;
   left: 0.625em;
   position: absolute;
 }
-/* line 140, ../scss/components/_boxes.scss */
-#intro .square .box-outer, #intro .half .box-outer, #intro .three-quarter .box-outer {
+/* line 165, ../scss/components/_boxes.scss */
+#intro .square .box-outer, #intro .box-80-pct .box-outer, #intro .half .box-outer, #intro .half-80-pct .box-outer, #intro .three-quarter .box-outer {
   position: relative;
   right: auto;
   left: auto;
 }
-/* line 146, ../scss/components/_boxes.scss */
+/* line 171, ../scss/components/_boxes.scss */
 .orange .box-outer {
   background-color: #ffb61e;
 }
-/* line 149, ../scss/components/_boxes.scss */
+/* line 174, ../scss/components/_boxes.scss */
 .current .box-outer {
   background-color: white;
   overflow: visible;
 }
-/* line 152, ../scss/components/_boxes.scss */
+/* line 177, ../scss/components/_boxes.scss */
 .current .box-outer:before {
   content: "";
   height: 64px;
@@ -4283,32 +4312,36 @@ a:hover, a:active {
   margin-top: -32px;
   background: url("../images/current-link-pointer.png") left top no-repeat;
 }
-/* line 160, ../scss/components/_boxes.scss */
+/* line 185, ../scss/components/_boxes.scss */
 .svg .current .box-outer:before {
   background: url("../images/current-link-pointer.png") left top no-repeat;
 }
-/* line 165, ../scss/components/_boxes.scss */
+/* line 190, ../scss/components/_boxes.scss */
+.current .box-outer .box-icon img {
+  float: right;
+}
+/* line 195, ../scss/components/_boxes.scss */
 .current .box-outer h2:after, .current .box-outer h3:after {
   background-position: right top;
 }
-/* line 170, ../scss/components/_boxes.scss */
+/* line 200, ../scss/components/_boxes.scss */
 .square .box-outer {
   bottom: 1.25em;
 }
-/* line 173, ../scss/components/_boxes.scss */
+/* line 203, ../scss/components/_boxes.scss */
 .top .box-outer {
   bottom: 0.625rem;
 }
-/* line 176, ../scss/components/_boxes.scss */
+/* line 206, ../scss/components/_boxes.scss */
 .bottom .box-outer {
   top: 0.625rem;
 }
-/* line 179, ../scss/components/_boxes.scss */
-.bottom-spaced.half .box-outer, .bottom-spaced.square .box-outer, .bottom-spaced.three-quarter .box-outer {
+/* line 209, ../scss/components/_boxes.scss */
+.bottom-spaced.half .box-outer, .bottom-spaced.half-80-pct .box-outer, .bottom-spaced.box-80-pct .box-outer, .bottom-spaced.square .box-outer, .bottom-spaced.three-quarter .box-outer {
   bottom: 1.25rem;
 }
 
-/* line 184, ../scss/components/_boxes.scss */
+/* line 214, ../scss/components/_boxes.scss */
 .box-link, .box-overlay, .box-image {
   top: 0;
   right: 0;
@@ -4318,7 +4351,7 @@ a:hover, a:active {
   display: block;
 }
 
-/* line 189, ../scss/components/_boxes.scss */
+/* line 219, ../scss/components/_boxes.scss */
 span.caption {
   font-size: 21px;
   font-size: 1.3125rem;
@@ -4337,15 +4370,15 @@ span.caption {
   position: absolute;
 }
 
-/* line 203, ../scss/components/_boxes.scss */
+/* line 233, ../scss/components/_boxes.scss */
 .box-link:hover .box-overlay {
   background-color: #ffb61e;
 }
-/* line 205, ../scss/components/_boxes.scss */
+/* line 235, ../scss/components/_boxes.scss */
 .orange .box-link:hover .box-overlay {
   background-color: #ea9e00;
 }
-/* line 209, ../scss/components/_boxes.scss */
+/* line 239, ../scss/components/_boxes.scss */
 .box-link:hover .box-image {
   -webkit-transform: scale(1.02);
   -moz-transform: scale(1.02);
@@ -4353,11 +4386,11 @@ span.caption {
   -o-transform: scale(1.02);
   transform: scale(1.02);
 }
-/* line 212, ../scss/components/_boxes.scss */
+/* line 242, ../scss/components/_boxes.scss */
 .box-link:hover span.label {
   display: none;
 }
-/* line 215, ../scss/components/_boxes.scss */
+/* line 245, ../scss/components/_boxes.scss */
 .box-link:hover span.caption {
   visibility: visible;
   opacity: 1;
@@ -4367,7 +4400,7 @@ span.caption {
   position: relative;
 }
 
-/* line 223, ../scss/components/_boxes.scss */
+/* line 253, ../scss/components/_boxes.scss */
 .box-overlay {
   z-index: 2;
   -webkit-transition: background-color 0.3s ease;
@@ -4379,7 +4412,7 @@ span.caption {
   filter: alpha(opacity=60);
 }
 
-/* line 228, ../scss/components/_boxes.scss */
+/* line 258, ../scss/components/_boxes.scss */
 .box-image {
   z-index: 1;
   top: -1;
@@ -4397,8 +4430,17 @@ span.caption {
   -moz-transition: -moz-transform 0.5s ease;
   transition: transform 0.5s ease;
 }
+/* line 263, ../scss/components/_boxes.scss */
+.half .box-image {
+  background-position: right top;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
-/* line 234, ../scss/components/_boxes.scss */
+/* line 267, ../scss/components/_boxes.scss */
 .box-content {
   position: relative;
   width: 100%;
@@ -4406,40 +4448,40 @@ span.caption {
   z-index: 3;
   padding: 17.5px;
 }
-/* line 240, ../scss/components/_boxes.scss */
+/* line 273, ../scss/components/_boxes.scss */
 .padding-2x .box-content {
   padding: 25px;
 }
-/* line 243, ../scss/components/_boxes.scss */
+/* line 276, ../scss/components/_boxes.scss */
 .box-content.no-bottom-padding {
   padding-bottom: 0 !important;
 }
-/* line 246, ../scss/components/_boxes.scss */
-.square .box-content, .half .box-content {
+/* line 279, ../scss/components/_boxes.scss */
+.square .box-content, .half .box-content, .half-80-pct .box-content {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   position: absolute;
 }
-/* line 248, ../scss/components/_boxes.scss */
-#intro .square .box-content, #intro .half .box-content {
+/* line 281, ../scss/components/_boxes.scss */
+#intro .square .box-content, #intro .half .box-content, #intro .half-80-pct .box-content {
   position: relative;
 }
 
-/* line 254, ../scss/components/_boxes.scss */
+/* line 287, ../scss/components/_boxes.scss */
 .vcenter-wrap {
   text-align: center;
   height: 100%;
 }
-/* line 257, ../scss/components/_boxes.scss */
+/* line 290, ../scss/components/_boxes.scss */
 .vcenter-wrap:before {
   content: "";
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
-/* line 263, ../scss/components/_boxes.scss */
+/* line 296, ../scss/components/_boxes.scss */
 .vcenter-wrap .vcenter {
   vertical-align: middle;
   display: inline-block;
@@ -4448,11 +4490,11 @@ span.caption {
   text-align: left;
 }
 
-/* line 272, ../scss/components/_boxes.scss */
+/* line 305, ../scss/components/_boxes.scss */
 #contacts-bar {
   text-align: center;
 }
-/* line 274, ../scss/components/_boxes.scss */
+/* line 307, ../scss/components/_boxes.scss */
 #contacts-bar nav {
   display: block;
   width: 100%;
@@ -4475,19 +4517,19 @@ span.caption {
   position: relative;
   right: 50%;
 }
-/* line 280, ../scss/components/_boxes.scss */
+/* line 313, ../scss/components/_boxes.scss */
 #contacts-bar ul, #contacts-bar li {
   display: inline-block;
   width: 100%;
 }
-/* line 285, ../scss/components/_boxes.scss */
+/* line 318, ../scss/components/_boxes.scss */
 #contacts-bar li {
   line-height: 100%;
   width: auto;
   padding: 0 20px;
   position: relative;
 }
-/* line 290, ../scss/components/_boxes.scss */
+/* line 323, ../scss/components/_boxes.scss */
 #contacts-bar li:after {
   content: "";
   display: block;
@@ -4501,106 +4543,97 @@ span.caption {
   position: absolute;
   margin-top: -10px;
 }
-/* line 300, ../scss/components/_boxes.scss */
+/* line 333, ../scss/components/_boxes.scss */
 #contacts-bar span {
   width: 100%;
   display: block;
   margin-bottom: 10px;
   float: none;
 }
-/* line 307, ../scss/components/_boxes.scss */
+/* line 340, ../scss/components/_boxes.scss */
 #contacts-bar li:last-child:after {
   display: none;
 }
-/* line 311, ../scss/components/_boxes.scss */
+/* line 344, ../scss/components/_boxes.scss */
 #contacts-bar span {
   font-weight: 700;
 }
-/* line 314, ../scss/components/_boxes.scss */
+/* line 347, ../scss/components/_boxes.scss */
 #contacts-bar i {
   color: white;
   padding-right: 10px;
 }
-/* line 319, ../scss/components/_boxes.scss */
+/* line 352, ../scss/components/_boxes.scss */
 #contacts-bar a:link, #contacts-bar a:visited {
   color: #232726;
 }
-/* line 322, ../scss/components/_boxes.scss */
+/* line 355, ../scss/components/_boxes.scss */
 #contacts-bar a:hover, #contacts-bar a:active {
   color: white;
 }
 
 @media only screen and (min-width: 48rem) and (max-width: 64rem) {
-  /* line 332, ../scss/components/_boxes.scss */
+  /* line 363, ../scss/components/_boxes.scss */
+  .box .box-icon {
+    height: 51.75px;
+    width: 51.75px;
+  }
+  /* line 369, ../scss/components/_boxes.scss */
   .box.icon h3:after, .box.icon h4:after {
-    height: 48px;
+    height: 51.75px;
     width: 51.75px;
     margin-top: -24px;
   }
-  /* line 340, ../scss/components/_boxes.scss */
-  .box.icon.news h3:after, .box.icon.news h4:after {
-    width: 41.25px;
-    height: 48px;
-    margin-top: -24px;
-  }
-  /* line 349, ../scss/components/_boxes.scss */
-  .box.icon.press h3:after, .box.icon.press h4:after {
-    width: 48px;
-    height: 41.25px;
-    margin-top: -20.25px;
-  }
-  /* line 358, ../scss/components/_boxes.scss */
-  .box.icon.charity h3:after, .box.icon.charity h4:after {
-    width: 48px;
-    height: 41.25px;
-    margin-top: -20.25px;
-  }
 
-  /* line 368, ../scss/components/_boxes.scss */
+  /* line 378, ../scss/components/_boxes.scss */
   .top .box-outer {
     bottom: 0;
   }
-  /* line 371, ../scss/components/_boxes.scss */
+  /* line 381, ../scss/components/_boxes.scss */
   .bottom .box-outer {
     top: 0;
   }
 }
 @media only screen and (min-width: 48rem) {
-  /* line 380, ../scss/components/_boxes.scss */
+  /* line 390, ../scss/components/_boxes.scss */
   .box.square:before {
     padding-top: 100%;
   }
-  /* line 385, ../scss/components/_boxes.scss */
+  /* line 395, ../scss/components/_boxes.scss */
+  .box.box-80-pct:before {
+    padding-top: 80%;
+  }
+  /* line 400, ../scss/components/_boxes.scss */
   .box.three-quarter:before {
     padding-top: 31.6%;
   }
 }
 @media only screen and (min-width: 64.0625rem) {
-  /* line 395, ../scss/components/_boxes.scss */
+  /* line 410, ../scss/components/_boxes.scss */
   .box {
     display: block;
     position: relative;
     max-width: 100%;
   }
-  /* line 400, ../scss/components/_boxes.scss */
+  /* line 415, ../scss/components/_boxes.scss */
   .box.square:before {
     padding-top: 100%;
   }
-  /* line 407, ../scss/components/_boxes.scss */
+  /* line 422, ../scss/components/_boxes.scss */
   #intro .box.square:before, #intro .box.half:before, #intro .box.three-quarter:before {
-    padding-top: 100%;
+    padding-top: 80%;
   }
 
-  /* line 414, ../scss/components/_boxes.scss */
+  /* line 429, ../scss/components/_boxes.scss */
   .box-content {
     padding: 25px;
   }
-  /* line 416, ../scss/components/_boxes.scss */
+  /* line 431, ../scss/components/_boxes.scss */
   .padding-2x .box-content {
     padding: 50px;
   }
 
-  /* line 423, ../scss/components/_boxes.scss */
+  /* line 438, ../scss/components/_boxes.scss */
   #intro .square .box-outer, #intro .half .box-outer, #intro .three-quarter .box-outer {
     top: 0;
     right: 0.625em;
@@ -4608,29 +4641,29 @@ span.caption {
     left: 0.625em;
     position: absolute;
   }
-  /* line 427, ../scss/components/_boxes.scss */
+  /* line 442, ../scss/components/_boxes.scss */
   .top .box-outer {
     bottom: 0.625rem;
   }
-  /* line 430, ../scss/components/_boxes.scss */
+  /* line 445, ../scss/components/_boxes.scss */
   .bottom .box-outer {
     top: 0.625rem;
   }
 }
 @media only screen and (min-width: 75.0625rem) {
-  /* line 443, ../scss/components/_boxes.scss */
+  /* line 458, ../scss/components/_boxes.scss */
   #contacts-bar nav {
     width: auto;
     display: inline-block;
     margin: 0 auto;
   }
-  /* line 447, ../scss/components/_boxes.scss */
+  /* line 462, ../scss/components/_boxes.scss */
   #contacts-bar nav ul {
     float: left;
     clear: none;
     display: inline-block;
   }
-  /* line 454, ../scss/components/_boxes.scss */
+  /* line 469, ../scss/components/_boxes.scss */
   #contacts-bar span {
     float: left;
     display: inline-block;
@@ -4640,7 +4673,7 @@ span.caption {
     margin-bottom: 0;
     line-height: 100%;
   }
-  /* line 462, ../scss/components/_boxes.scss */
+  /* line 477, ../scss/components/_boxes.scss */
   #contacts-bar span:after {
     content: "";
     display: block;
@@ -4654,7 +4687,7 @@ span.caption {
     position: absolute;
     margin-top: -10px;
   }
-  /* line 472, ../scss/components/_boxes.scss */
+  /* line 487, ../scss/components/_boxes.scss */
   #contacts-bar ul, #contacts-bar li {
     display: inline-block;
     float: left;
@@ -5510,8 +5543,8 @@ button {
 }
 /* line 42, ../scss/templates/_home.scss */
 #intro p {
-  font-size: 22.5px;
-  font-size: 1.40625rem;
+  font-size: 19.5px;
+  font-size: 1.21875rem;
 }
 
 @media only screen and (min-width: 48rem) {
@@ -5534,8 +5567,8 @@ button {
 
   /* line 69, ../scss/templates/_home.scss */
   #intro p {
-    font-size: 30px;
-    font-size: 1.875rem;
+    font-size: 26px;
+    font-size: 1.625rem;
   }
 }
 /* line 1, ../scss/templates/_team.scss */
@@ -5631,6 +5664,10 @@ ul.meta li i {
   width: 100%;
   height: auto;
 }
+/* line 74, ../scss/templates/_team.scss */
+.post footer {
+  padding: 20px 0 0;
+}
 /* line 78, ../scss/templates/_team.scss */
 .post.profile {
   position: relative;
@@ -5647,16 +5684,23 @@ ul.meta li i {
   bottom: auto;
   left: 0;
   position: absolute;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  overflow: hidden;
 }
-/* line 87, ../scss/templates/_team.scss */
+/* line 89, ../scss/templates/_team.scss */
 .post.profile h4 {
   margin-bottom: 10px;
 }
-/* line 91, ../scss/templates/_team.scss */
+/* line 93, ../scss/templates/_team.scss */
 .post.profile.pic-top {
   padding: 90px 30px 30px;
 }
-/* line 93, ../scss/templates/_team.scss */
+/* line 95, ../scss/templates/_team.scss */
 .post.profile.pic-top figure {
   top: -72px;
   right: auto;
@@ -5665,27 +5709,38 @@ ul.meta li i {
   position: absolute;
 }
 
-/* line 101, ../scss/templates/_team.scss */
+/* line 103, ../scss/templates/_team.scss */
 #posts li:last-child .post {
   background-image: none;
 }
 
 @media only screen and (min-width: 48rem) {
-  /* line 110, ../scss/templates/_team.scss */
+  /* line 112, ../scss/templates/_team.scss */
   .profile {
     position: relative;
     padding: 0 0 0 180px;
   }
-  /* line 113, ../scss/templates/_team.scss */
+  /* line 115, ../scss/templates/_team.scss */
   .profile figure {
     top: 0;
     right: auto;
     bottom: auto;
     left: 0;
     position: absolute;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    overflow: hidden;
   }
-  /* line 116, ../scss/templates/_team.scss */
+  /* line 120, ../scss/templates/_team.scss */
   .profile.pic-top {
     padding: 80px 30px 30px;
+  }
+  /* line 123, ../scss/templates/_team.scss */
+  .profile footer {
+    padding: 20px 0 0;
   }
 }

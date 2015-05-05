@@ -3,12 +3,20 @@
 	<!--affiliates-->
 <section id="affiliates" class="row">
 	<div id="affiliates-carousel">
-	<div class="item"><div class="vcenter-wrap"><div class="vcenter"><div class="logo"><a href="http://www.certainty.co.uk" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/certainty.png" title="certainty.co.uk" /></a></div></div></div></div>
-	<div class="item"><div class="vcenter-wrap"><div class="vcenter"><div class="logo"><a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/legal-500.png" title="Legal 500" /></a></div></div></div></div>
-	<div class="item"><div class="vcenter-wrap"><div class="vcenter"><div class="logo"><a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/conveyancing-quality.png" title="Conveyancing Quality" /></a></div></div></div></div>
-	<div class="item"><div class="vcenter-wrap"><div class="vcenter"><div class="logo"><a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/lexcel.png" title="Legal 500" /></a></div></div></div></div>
-	<div class="item"><div class="vcenter-wrap"><div class="vcenter"><div class="logo"><a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/lexcel.png" title="Legal 500" /></a></div></div></div></div>
-	<div class="item"><div class="vcenter-wrap"><div class="vcenter"><div class="logo"><a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/lexcel.png" title="Legal 500" /></a></div></div></div></div>
+		<?php
+		if(get_field('accreditations_rptr',2)):
+while(the_repeater_field('accreditations_rptr',2)): 
+list($logo,$w,$h) = wp_get_attachment_image_src(get_sub_field('accreditation_logo'), 'full');
+$title = get_sub_field('accreditation_title');
+$link = get_sub_field('accreditation_url');
+?>
+	<div class="item"><div class="vcenter-wrap"><div class="vcenter"><div class="logo">
+	<?php if(!empty($link)): ?><a href="<?php echo $link ?>" title="<?php echo $title ?>" target="_blank"><?php else: ?><span><?php endif ?>
+	<img src="<?php echo $logo ?>" title="<?php echo $title ?>" />
+	<?php if(!empty($link)): ?></a><?php else: ?></span><?php endif ?>
+	</div></div></div></div>
+<?php endwhile ?>
+<?php endif ?>
 </div>
 </section>
 <!--/affiliates-->

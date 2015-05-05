@@ -40,7 +40,7 @@
 		margin-bottom: 15px;
 	}
 	p{
-		@include font-size(30px/100*75);
+		@include font-size(26px/100*75);
 	}
 }
 
@@ -67,7 +67,7 @@
 
 	#intro{
 		p{
-			@include font-size(30px);
+			@include font-size(26px);
 		}
 	}
 }

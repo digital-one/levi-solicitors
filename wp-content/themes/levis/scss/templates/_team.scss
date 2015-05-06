@@ -26,7 +26,8 @@ ul.meta{
 	}
 }
 .post{
-	padding:rem-calc(10) 0 1.25rem + rem-calc(10);
+	padding:0 0 1.875rem;
+	margin-bottom: 1.875rem;
 	background-image: url("../images/dotted-line.svg");
 	background-position: left bottom;
 	background-repeat: repeat-x;
@@ -43,12 +44,12 @@ ul.meta{
 	}
 	main{
 		position: relative;
-		min-height: 146px;
 		margin-bottom: 10px;
 	}
 	&.pic{
 		main{
 			padding-right: 150px;	
+			min-height: 146px;
 		}
 	}
 	figure{
@@ -64,16 +65,17 @@ ul.meta{
 			cursor: pointer;
 			width:100%;
 			height:100%;
+			border:none !important;
 		}
 		img{
-			width: 100%;
-			height:auto;
+			width: auto;
+			height:100%;
 		}
 	}
 
 	footer{
 		@extend %clearfix;
-		padding:20px 0 0;
+		padding:0;
 	}
 	&.profile{
 		position:relative;

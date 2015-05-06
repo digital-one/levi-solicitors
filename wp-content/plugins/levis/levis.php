@@ -17,6 +17,7 @@
         	//register custom post types
         	add_action( 'init', array($this,'register_cpt_news'), 0 );
             add_action( 'init', array($this,'register_cpt_team'), 0 );
+            add_action('init',array($this,'register_cptax_news_category'),0);
             //register custom taxonomies
             // add_action('init',array($this,'register_cptax_question_category'),0);
            //  add_action('init',array($this,'register_cptax_location_service'),0);
@@ -89,6 +90,8 @@
             'exclude_from_search' => false,
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
+            'taxonomies' => array('post_tag', 'cptax_news_category'),
+           // 'taxonomies' => array('post_tag')
         );
         register_post_type( 'cpt_news', $args );
     }
@@ -133,7 +136,43 @@
         register_post_type( 'cpt_team', $args );
     }
 
+   function register_cptax_news_category() {
 
+            $labels = array(
+                'name'                       => _x( 'News Categories', 'Taxonomy General Name', 'text_domain' ),
+                'singular_name'              => _x( 'News Category', 'Taxonomy Singular Name', 'text_domain' ),
+                'menu_name'                  => __( 'News Categories', 'text_domain' ),
+                'all_items'                  => __( 'All Categories', 'text_domain' ),
+                'parent_item'                => __( 'Parent Category', 'text_domain' ),
+                'parent_item_colon'          => __( 'Parent Category:', 'text_domain' ),
+                'new_item_name'              => __( 'New Category', 'text_domain' ),
+                'add_new_item'               => __( 'Add Category', 'text_domain' ),
+                'edit_item'                  => __( 'Edit Category', 'text_domain' ),
+                'update_item'                => __( 'Update Category', 'text_domain' ),
+                'separate_items_with_commas' => __( 'Separate Categories with commas', 'text_domain' ),
+                'search_items'               => __( 'Search Categories', 'text_domain' ),
+                'add_or_remove_items'        => __( 'Add or remove categories', 'text_domain' ),
+                'choose_from_most_used'      => __( 'Choose from the most used categories', 'text_domain' ),
+                'not_found'                  => __( 'Not Found', 'text_domain' ),
+            );
+            $rewrite = array(
+                'slug'                       => 'latest-news/category',
+                'with_front'                 => true,
+                'hierarchical'               => true,
+            );
+            $args = array(
+                'labels'                     => $labels,
+                'hierarchical'               => true,
+                'public'                     => true,
+                'show_ui'                    => true,
+                'show_admin_column'          => true,
+                'show_in_nav_menus'          => true,
+                'show_tagcloud'              => true,
+                'rewrite'                    => $rewrite
+            );
+            register_taxonomy( 'cptax_news_category', array( 'cpt_news' ), $args );
+
+        }
   
 
         function add_cpt_team_columns($columns){
@@ -156,6 +195,30 @@ function add_cpt_team_custom_columns($column,$id){
                }
             } 
 
+ function add_cpt_news_columns($columns){
+        $columns = array(
+           "cb" => "<input type=\"checkbox\" />",
+           "title" => "Name",
+           "category" => "Category",
+           "date" => "Publish Date"
+        );  
+         return $columns;
+        }
+
+function add_cpt_news_custom_columns($column,$id){
+        global $post;
+        switch ($column){
+            case "category":
+            $terms = wp_get_post_terms($id, 'cptax_news_category');
+            $list="";
+            foreach($terms as $term):
+                if(!empty($list)) $list.=', ';
+            $list.=  $term->name;
+            endforeach;
+            echo $list;
+            break;
+               }
+            } 
 
 
         function add_cpt_news_rewrite_rules(){ 

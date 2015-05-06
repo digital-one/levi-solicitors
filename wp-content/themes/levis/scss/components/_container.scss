@@ -3,3 +3,6 @@
 		padding: 70px 0 0;
 	}
 }
+#content{
+	@extend %clearfix;
+}

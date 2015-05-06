@@ -1,9 +1,9 @@
 <?php get_header() ?>
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<div id="content" class="row">
 <!--main content-->
 <main id="main" role="main" class="small-12 medium-9 columns">
 <div class="row">
+	archive
 <?php get_template_part('partials/content','page-title' );  ?>
 <!--article-->
 <div class="small-12 columns bottom-spaced box padding-2x">
@@ -96,6 +96,4 @@
 </div>
 </section>
 <!--/row-->
-<?php endwhile ?>
-<?php endif ?>
 <?php get_footer() ?> 

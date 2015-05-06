@@ -6,8 +6,9 @@ if(has_post_thumbnail()):
 list($src,$w,$h) = wp_get_attachment_image_src(get_post_thumbnail_id(),'square-image');
 $class='pic ';
 $has_pic = true;
+endif;
 ?>
-<li>
+
 <article class="post <?php echo $class ?>dotted-links">
 <header>
 <h4><a href="<?php echo get_permalink(); ?>"><strong><?php the_title() ?></strong></a></h4>
@@ -17,9 +18,10 @@ $has_pic = true;
 	<?php if($has_pic): ?>
 <figure><a href="<?php the_permalink() ?>"><img src="<?php echo $src ?>" title="<?php the_title() ?>" /></a></figure>
 <?php endif ?>
-<p><?php the_excerpt() ?></p>
+<?php the_excerpt() ?>
 </main>
-<footer><ul class="meta"><li><i class="fa fa-tag"></i><small><?php the_tags('',', ') ?></small></li></ul></footer>
+
+<footer><ul class="meta"><li><i class="fa fa-tag"></i><small><?php // echo $tag_list ;?><?php the_tags('',', ') ?></small></li></ul></footer>
 </article>
-</li>
+
 <!--/post-->

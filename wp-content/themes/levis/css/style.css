@@ -3424,7 +3424,7 @@ figure, ul, li, p, blockquote {
 }
 
 /* line 25, ../scss/helpers/_placeholders.scss */
-.gform_body ul li, ul.meta, .post footer {
+#content, .section, .gform_body ul li, ul.meta, .post footer {
   overflow: hidden;
   zoom: 1;
 }
@@ -4001,23 +4001,23 @@ a:hover, a:active {
 .section {
   margin-bottom: 50px;
 }
-/* line 3, ../scss/components/_global.scss */
+/* line 4, ../scss/components/_global.scss */
 .section:last-child {
   margin-bottom: 0;
 }
 
-/* line 7, ../scss/components/_global.scss */
+/* line 8, ../scss/components/_global.scss */
 .tint {
   background-color: #f5f4f3;
 }
 
-/* line 11, ../scss/components/_global.scss */
+/* line 12, ../scss/components/_global.scss */
 .bullet-list li {
   padding-left: 15px;
   margin-bottom: 10px;
   position: relative;
 }
-/* line 15, ../scss/components/_global.scss */
+/* line 16, ../scss/components/_global.scss */
 .bullet-list li:before {
   content: "•";
   color: #ffb61e;
@@ -4028,14 +4028,14 @@ a:hover, a:active {
   position: absolute;
 }
 
-/* line 22, ../scss/components/_global.scss */
+/* line 23, ../scss/components/_global.scss */
 .band {
   background-color: #e6e5e2;
   padding: 25px 50px;
   margin: 0;
 }
 
-/* line 28, ../scss/components/_global.scss */
+/* line 29, ../scss/components/_global.scss */
 #services-carousel .item {
   margin: 5px 20px;
   text-align: center;
@@ -4043,42 +4043,42 @@ a:hover, a:active {
   font-size: 1rem;
   text-transform: uppercase;
 }
-/* line 33, ../scss/components/_global.scss */
+/* line 34, ../scss/components/_global.scss */
 #services-carousel .item a {
   display: block;
   width: 100%;
   height: 100%;
 }
-/* line 37, ../scss/components/_global.scss */
+/* line 38, ../scss/components/_global.scss */
 #services-carousel .item a:link, #services-carousel .item a:visited {
   color: #a0a9a7;
 }
-/* line 40, ../scss/components/_global.scss */
+/* line 41, ../scss/components/_global.scss */
 #services-carousel .item a:hover, #services-carousel .item a:active {
   color: #232726;
 }
-/* line 42, ../scss/components/_global.scss */
+/* line 43, ../scss/components/_global.scss */
 #services-carousel .item a:hover figure, #services-carousel .item a:active figure {
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   border: 1px solid #a0a9a7;
 }
-/* line 49, ../scss/components/_global.scss */
+/* line 50, ../scss/components/_global.scss */
 #services-carousel .slick-prev, #services-carousel .slick-next {
   width: 30px;
   height: 50px;
   margin-top: -35px;
 }
-/* line 54, ../scss/components/_global.scss */
+/* line 55, ../scss/components/_global.scss */
 #services-carousel .slick-prev {
   margin-left: -30px;
 }
-/* line 57, ../scss/components/_global.scss */
+/* line 58, ../scss/components/_global.scss */
 #services-carousel .slick-next {
   margin-right: -30px;
 }
-/* line 60, ../scss/components/_global.scss */
+/* line 61, ../scss/components/_global.scss */
 #services-carousel figure {
   width: 100%;
   display: block;
@@ -4087,7 +4087,7 @@ a:hover, a:active {
   margin-bottom: 10px;
   border: 1px solid #d5dad9;
 }
-/* line 67, ../scss/components/_global.scss */
+/* line 68, ../scss/components/_global.scss */
 #services-carousel figure img {
   top: 0;
   right: auto;
@@ -4098,7 +4098,7 @@ a:hover, a:active {
   height: 100%;
   display: block;
 }
-/* line 73, ../scss/components/_global.scss */
+/* line 74, ../scss/components/_global.scss */
 #services-carousel figure:before {
   content: "";
   padding-top: 100%;
@@ -5604,36 +5604,37 @@ ul.meta li i {
 
 /* line 28, ../scss/templates/_team.scss */
 .post {
-  padding: 0.625rem 0 1.875rem;
+  padding: 0 0 1.875rem;
+  margin-bottom: 1.875rem;
   background-image: url("../images/dotted-line.svg");
   background-position: left bottom;
   background-repeat: repeat-x;
 }
-/* line 33, ../scss/templates/_team.scss */
+/* line 34, ../scss/templates/_team.scss */
 .post h4 {
   margin-bottom: 5px;
   font-weight: 400;
 }
-/* line 37, ../scss/templates/_team.scss */
+/* line 38, ../scss/templates/_team.scss */
 .post header {
   margin-bottom: 20px;
 }
-/* line 40, ../scss/templates/_team.scss */
+/* line 41, ../scss/templates/_team.scss */
 .post.tint {
   padding: 30px;
   background-image: none;
 }
-/* line 44, ../scss/templates/_team.scss */
+/* line 45, ../scss/templates/_team.scss */
 .post main {
   position: relative;
-  min-height: 146px;
   margin-bottom: 10px;
 }
 /* line 50, ../scss/templates/_team.scss */
 .post.pic main {
   padding-right: 150px;
+  min-height: 146px;
 }
-/* line 54, ../scss/templates/_team.scss */
+/* line 55, ../scss/templates/_team.scss */
 .post figure {
   display: block;
   background-color: white;
@@ -5652,32 +5653,33 @@ ul.meta li i {
   position: absolute;
   overflow: hidden;
 }
-/* line 62, ../scss/templates/_team.scss */
+/* line 63, ../scss/templates/_team.scss */
 .post figure a {
   display: block;
   cursor: pointer;
   width: 100%;
   height: 100%;
+  border: none !important;
 }
-/* line 68, ../scss/templates/_team.scss */
+/* line 70, ../scss/templates/_team.scss */
 .post figure img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
-/* line 74, ../scss/templates/_team.scss */
+/* line 76, ../scss/templates/_team.scss */
 .post footer {
-  padding: 20px 0 0;
+  padding: 0;
 }
-/* line 78, ../scss/templates/_team.scss */
+/* line 80, ../scss/templates/_team.scss */
 .post.profile {
   position: relative;
   padding: 150px 0 0 0;
 }
-/* line 81, ../scss/templates/_team.scss */
+/* line 83, ../scss/templates/_team.scss */
 .post.profile.pic-top {
   padding: 80px 30px 30px;
 }
-/* line 84, ../scss/templates/_team.scss */
+/* line 86, ../scss/templates/_team.scss */
 .post.profile figure {
   top: 0;
   right: auto;
@@ -5692,15 +5694,15 @@ ul.meta li i {
   background-clip: padding-box;
   overflow: hidden;
 }
-/* line 89, ../scss/templates/_team.scss */
+/* line 91, ../scss/templates/_team.scss */
 .post.profile h4 {
   margin-bottom: 10px;
 }
-/* line 93, ../scss/templates/_team.scss */
+/* line 95, ../scss/templates/_team.scss */
 .post.profile.pic-top {
   padding: 90px 30px 30px;
 }
-/* line 95, ../scss/templates/_team.scss */
+/* line 97, ../scss/templates/_team.scss */
 .post.profile.pic-top figure {
   top: -72px;
   right: auto;
@@ -5709,18 +5711,18 @@ ul.meta li i {
   position: absolute;
 }
 
-/* line 103, ../scss/templates/_team.scss */
+/* line 105, ../scss/templates/_team.scss */
 #posts li:last-child .post {
   background-image: none;
 }
 
 @media only screen and (min-width: 48rem) {
-  /* line 112, ../scss/templates/_team.scss */
+  /* line 114, ../scss/templates/_team.scss */
   .profile {
     position: relative;
     padding: 0 0 0 180px;
   }
-  /* line 115, ../scss/templates/_team.scss */
+  /* line 117, ../scss/templates/_team.scss */
   .profile figure {
     top: 0;
     right: auto;
@@ -5735,11 +5737,11 @@ ul.meta li i {
     background-clip: padding-box;
     overflow: hidden;
   }
-  /* line 120, ../scss/templates/_team.scss */
+  /* line 122, ../scss/templates/_team.scss */
   .profile.pic-top {
     padding: 80px 30px 30px;
   }
-  /* line 123, ../scss/templates/_team.scss */
+  /* line 125, ../scss/templates/_team.scss */
   .profile footer {
     padding: 20px 0 0;
   }

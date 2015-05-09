@@ -40,6 +40,9 @@ function scripts_and_styles() {
 		wp_register_script( 'scrollto', get_stylesheet_directory_uri() . '/js/jquery.scrollTo.min.js', array(), null, false );
   		wp_enqueue_script( 'scrollto' );
 
+  		wp_register_script( 'gforms_validation', get_stylesheet_directory_uri() . '/js/jquery.gforms.validation.js', array(), null, false );
+  		wp_enqueue_script( 'gforms_validation' );
+
 
 		// register main stylesheet
 		wp_register_style( 'stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
@@ -192,7 +195,15 @@ function style_heading($heading){
 }
 
 
+// only search for posts
 
+function SearchFilter($query) {
+    if ($query->is_search) {
+        $query->set('post_type', 'post');
+    }
+    return $query;
+}
+add_filter('pre_get_posts','SearchFilter');
 
 
 

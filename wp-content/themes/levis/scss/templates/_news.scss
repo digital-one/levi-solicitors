@@ -1,0 +1,28 @@
+#post{
+	h1{
+		@include font-size(36px);
+		line-height: 120%;
+		margin-bottom: 10px;
+	}
+	footer{
+		padding-top:30px;
+	}
+}
+#categories, #recent-posts{
+	ul{
+		@include font-size(14px);
+		line-height: 130%;
+		li{
+			margin-bottom: 5px;
+		}
+	}
+}
+form#search{
+	position:relative;
+	input{
+		padding-right:90px;
+	}
+	.button{
+		@include abs-pos(0,0,auto,auto);
+	}
+}

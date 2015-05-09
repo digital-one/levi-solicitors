@@ -3,60 +3,79 @@
 <!--main content-->
 <main id="main" role="main" class="small-12 medium-9 columns">
 <div class="row">
-	archive
-<?php get_template_part('partials/content','page-title' );  ?>
+<!--header box-->
+<div class="small-12 columns bottom-spaced box padding-2x three-quarter">
+<?php
+$page = get_post(55);
+list($src,$w,$h) = wp_get_attachment_image_src(get_field('page_header_image',55),'header-image');
+?>
+<div class="box-outer" style="background-image:url('<?php echo $src ?>');">
+	<div class="box-content">
+		<span class="vcenter-wrap">
+			<span class="vcenter">
+<?php
+$title = $page->post_title;
+$paging_permalink = get_permalink(55);
+if (is_category()): 
+	$title =  single_cat_title();
+	$term_id = get_query_var('cat');
+	$paging_permalink = get_category_link( $term_id );
+elseif (is_tag()):
+	$title = single_tag_title();
+	$tag = get_queried_object();
+    $tag_slug  = $tag->slug;
+    $tag_id = $tag->id;
+	$paging_permalink = get_tag_link( $tag_id );
+ elseif (is_day()):
+	$title = the_time('l, F j, Y'); 
+elseif (is_month()):
+	$title = the_time('F Y'); 
+elseif (is_year()):
+	$title = the_time('Y');
+endif;
+?>
+<h1><?php echo style_heading($title) ?></h1><a href="<?php echo get_permalink(14) ?>" class="button">Get in touch</a></span>
+		</span>
+	</div>
+	</div>
+</div>
+<!--/header box-->
+	<!--box-->
+<div class="small-12 columns box bottom-spaced">
+<div class="box-outer">
+	<div class="box-content">
+<form id="search" method="post" action="<?php echo home_url() ?>">
+<input type="text" name="s" id="s" value="" placeholder="Search" />
+<button type="submit" class="button"><i class="fa fa-search"></i></button>
+	</form>
+	</div>
+</div>
+</div>
+	<!--/box-->
 <!--article-->
-<div class="small-12 columns bottom-spaced box padding-2x">
+<div class="small-12 columns bottom-spaced box padding-2x end">
 	<div class="box-outer">
 <div class="box-content">
 <section id="posts" class="section">
-<ul class="small-block-grid-1">
-<!--post-->
-<li>
-<article class="post pic dotted-links">
-<header>
-<h4><a href="<?php echo get_permalink(103); ?>"><strong>Article Title</strong></a></h4>
-<p><small>By <a href="">Author</a> on <time datetime="">12th June 2015</time></small></p>
-</header>
-<main>
-<figure><a href=""><img src="<?php echo get_template_directory_uri(); ?>/images/steven-newdall.jpg" title="Steven Newdall" /></a></figure>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet dolor justo, eget cursus mi rhoncus sit amet. Nullam non iaculis sem. Suspendisse ac elementum mi. Fusce consectetur bibendum faucibus. Mauris in ligula vehicula, posuere eros eget, tristique purus. Sed sit amet maximus metus. Nulla facilisi. Pellentesque porttitor est nulla, vel bibendum leo laoreet quis ...<a href="">Read more</a></p>
-</main>
-<footer><ul class="meta"><li><i class="fa fa-tag"></i><small><a href="">Government</a>, <a href="">Election</a>, <a href="">Law</a></small></li></ul></footer>
-</article>
-</li>
-<!--/post-->
-<!--post-->
-<li>
-<article class="post dotted-links">
-<header>
-<h4><a href=""><strong>Article Title</strong></a></h4>
-<p><small>By <a href="">Author</a> on <time datetime="">12th June 2015</time></small></p>
-</header>
-<main>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet dolor justo, eget cursus mi rhoncus sit amet. Nullam non iaculis sem. Suspendisse ac elementum mi. Fusce consectetur bibendum faucibus. Mauris in ligula vehicula, posuere eros eget, tristique purus. Sed sit amet maximus metus. Nulla facilisi. Pellentesque porttitor est nulla, vel bibendum leo laoreet quis ...<a href="">Read more</a></p>
-</main>
-<footer><ul class="meta"><li><i class="fa fa-tag"></i><small><a href="">Government</a>, <a href="">Election</a>, <a href="">Law</a></small></li></ul></footer>
-</article>
-</li>
-<!--/post-->
-<!--post-->
-<li>
-<article class="post pic dotted-links">
-<header>
-<h4><a href=""><strong>Article Title</strong></a></h4>
-<p><small>By <a href="">Author</a> on <time datetime="">12th June 2015</time></small></p>
-</header>
-<main>
-<figure><a href=""><img src="<?php echo get_template_directory_uri(); ?>/images/steven-newdall.jpg" title="Steven Newdall" /></a></figure>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet dolor justo, eget cursus mi rhoncus sit amet. Nullam non iaculis sem. Suspendisse ac elementum mi. Fusce consectetur bibendum faucibus. Mauris in ligula vehicula, posuere eros eget, tristique purus. Sed sit amet maximus metus. Nulla facilisi. Pellentesque porttitor est nulla, vel bibendum leo laoreet quis ...<a href="">Read more</a></p>
-</main>
-<footer><ul class="meta"><li><i class="fa fa-tag"></i><small><a href="">Government</a>, <a href="">Election</a>, <a href="">Law</a></small></li></ul></footer>
-</article>
-</li>
-<!--/post-->
-</ul>
-<footer><a class="button load-more"><i class="fa fa-cog fa-spin"></i> Load more posts</a></footer>
+	<div class="posts">
+<?php
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		if(have_posts()):
+while (have_posts() ) : the_post(); 
+get_template_part('partials/content','post-loop' ); 
+endwhile;
+endif;
+wp_reset_query();
+?>
+<?php /* </ul> */ ?>
+</div>
+<?php
+$num_pages = $wp_query->max_num_pages;
+$next_page = $paged+1;
+?>
+<?php /* posts_nav_link(' - ', '&laquo; Prev', 'Next &raquo;'); */ ?>
+<footer class="posts-footer"><a href="<?php echo $paging_permalink ?>page/<?php echo $next_page ?>/" class="button load-posts<?php if($paged >= $num_pages): ?> end<?php endif ?>"><i class="fa fa-cog fa-spin"></i> Load more posts</a></footer>
+
 </section>
 </div>
 
@@ -69,21 +88,7 @@
 
 </main>
 <!--/main content-->
-<!--sidebar-->
-<aside class="small-12 medium-3 columns">
-<div class="row">
-	<!--box-->
-<div class="small-12 columns square box orange bottom-spaced news icon current"><div class="box-outer"><?php /*<a href="#" class="box-link"> */ ?><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3>News <strong>Articles</strong></h3></span></span></span><span class="box-overlay"></span><?php /* </a> */ ?></div></div>
-<!--/box-->
-	<!--box-->
-<div class="small-12 columns square box orange bottom-spaced press icon"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3>Press <strong>Releases</strong></h3></span></span></span><span class="box-overlay"></span></a></div></div>
-<!--/box-->
-	<!--box-->
-<div class="small-12 columns square box orange charity icon"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3>For <strong>Charity</strong></h3></span></span></span><span class="box-overlay"></span></a></div></div>
-<!--/box-->
-</div>
-</aside>
-<!--/sidebar-->
+<?php get_sidebar('blog'); ?>
 </div>
 <!--/row-->
 <!--row-->

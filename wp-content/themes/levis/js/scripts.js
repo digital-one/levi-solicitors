@@ -48,6 +48,12 @@ $('.menu-toggle').on('click',function(e){
   }
 })
 
+//
+if($('#commentform').length){
+    $('#commentform').gform_validation();
+}
+
+
 //Affiliates carousel
 
 	$('#affiliates-carousel').slick({
@@ -260,7 +266,7 @@ var _windowMiddle = $(window).height()/2,
 	_postsBottom = _offset.top + _postsHeight,
 	_scrollAmount  = _postsBottom - _windowMiddle,
 	_footerHeight = $('.posts-footer').outerHeight(),
-	_waypoint = (_postsHeight - _windowHeight) + 400;
+	_waypoint = (_postsHeight - _windowHeight) + 600;
 if(_scrollTop > _waypoint && _scrollDirection=='down'){
 	$('a.load-posts').trigger('click');
 }
@@ -273,7 +279,7 @@ load_posts_click = function(e){
 	var _this = e.currentTarget,
 		_url = $(_this).attr('href'),
 		_loadElement =  '.posts',
-		_btnElement = 'a.load-posts';
+		_btnElement = 'a.load-posts'
 
 		if(!$(_btnElement).hasClass('end')){
 	$(_this).data("label",$(_this).text());
@@ -289,6 +295,7 @@ load_posts_click = function(e){
 	 	_btn = $(data).find(_btnElement);
 	 	_items = _obj.children();
 	$(_this).attr('href',_btn.attr('href')); //update the paging link
+  console.log(_btn.attr('href'))
 	$(_this).attr('class',_btn.attr('class'));
 	$(_loadElement).append(_items);
 	//_container.append(_items).masonry('appended',_items);
@@ -298,7 +305,7 @@ load_posts_click = function(e){
 
 $('a.load-posts').on('click',load_posts_click);
 $(window).on('scroll',load_posts);
-//$(window).on('scroll',sticky_nav);
+
 
 $('.anchor-up').on('click',function(e){
 

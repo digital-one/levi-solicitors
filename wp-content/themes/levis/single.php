@@ -1,79 +1,70 @@
 <?php get_header() ?>
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<div id="content" class="row">
 <!--main content-->
 <main id="main" role="main" class="small-12 medium-9 columns">
 <div class="row">
+
 <!--article-->
-<div class="small-12 columns bottom-spaced box padding-2x">
+<div class="small-12 columns bottom-spaced box padding-2x end">
 	<div class="box-outer">
+	<?php
+if(have_posts()):
+while (have_posts() ) : the_post(); 
+?>
+<article id="post" class="dotted-links">
+	<div class="box-content<?php if(!has_post_thumbnail(get_the_ID())): ?> no-bottom-padding<?php endif ?>">
+<header>
+<h1><strong><?php the_title() ?></strong></h1>
+<p><small>By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' )); ?>"><?php the_author_link( get_the_author_meta( 'ID' )) ?></a> on <time datetime="<?php the_time('Y-m-j') ?>"><?php the_time(__( 'F j, Y, H:i A' )) ?></time></small></p>
+</header>
+<?php the_content() ?>
+<?php if( has_tag()): ?>
+<footer><ul class="meta"><li><i class="fa fa-tag"></i><small><?php // echo $tag_list ;?><?php the_tags('',', ') ?></small></li></ul></footer>
+<?php endif ?>
+</div>
+<?php if(has_post_thumbnail( get_the_ID())): ?> 
+
+<figure>
+<?php
+list($src,$w,$h) = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'large-image');
+?>
+<img src="<?php echo $src ?>" />
+</figure>
+<?php endif ?>
 <div class="box-content">
-<section class="section">
-<h2><strong>How it all started</strong></h2>
-<div class="row">
-<div class="small-12 large-6 columns">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet dolor justo, eget cursus mi rhoncus sit amet. Nullam non iaculis sem. Suspendisse ac elementum mi. Fusce consectetur bibendum faucibus. Mauris in ligula vehicula, posuere eros eget, tristique purus. Sed sit amet maximus metus. Nulla facilisi. Pellentesque porttitor est nulla, vel bibendum leo laoreet quis</p>
+<a href="<?php echo get_permalink(55) ?>" class="button">back to articles</a>
 </div>
-<div class="small-12 large-6 columns">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet dolor justo, eget cursus mi rhoncus sit amet. Nullam non iaculis sem. Suspendisse ac elementum mi. Fusce consectetur bibendum faucibus. Mauris in ligula vehicula, posuere eros eget, tristique purus. Sed sit amet maximus metus. Nulla facilisi. Pellentesque porttitor est nulla, vel bibendum leo laoreet quis</p>
-</div>
-</div>
-</section>
-</div>
-<section class="video">
-<img src="<?php echo get_template_directory_uri(); ?>/images/video-placeholder.jpg" />
-</section>
-<div class="box-content no-bottom-padding">
-<section class="section">
-<h2><strong>Here for you</strong></h2>
-<div class="row">
-<div class="small-12 large-6 columns">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet dolor justo, eget cursus mi rhoncus sit amet. Nullam non iaculis sem. Suspendisse ac elementum mi. Fusce consectetur bibendum faucibus. Mauris in ligula vehicula, posuere eros eget, tristique purus. Sed sit amet maximus metus. Nulla facilisi. Pellentesque porttitor est nulla, vel bibendum leo laoreet quis</p>
-</div>
-<div class="small-12 large-6 columns">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet dolor justo, eget cursus mi rhoncus sit amet. Nullam non iaculis sem. Suspendisse ac elementum mi. Fusce consectetur bibendum faucibus. Mauris in ligula vehicula, posuere eros eget, tristique purus. Sed sit amet maximus metus. Nulla facilisi. Pellentesque porttitor est nulla, vel bibendum leo laoreet quis</p>
-</div>
-</div>
-</section>
-<section class="section">
-<h2><strong>Our vision for the future</strong></h2>
-<div class="row">
-<div class="small-12 large-6 columns">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet dolor justo, eget cursus mi rhoncus sit amet. Nullam non iaculis sem. Suspendisse ac elementum mi. Fusce consectetur bibendum faucibus. Mauris in ligula vehicula, posuere eros eget, tristique purus. Sed sit amet maximus metus. Nulla facilisi. Pellentesque porttitor est nulla, vel bibendum leo laoreet quis</p>
-</div>
-<div class="small-12 large-6 columns">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet dolor justo, eget cursus mi rhoncus sit amet. Nullam non iaculis sem. Suspendisse ac elementum mi. Fusce consectetur bibendum faucibus. Mauris in ligula vehicula, posuere eros eget, tristique purus. Sed sit amet maximus metus. Nulla facilisi. Pellentesque porttitor est nulla, vel bibendum leo laoreet quis</p>
-</div>
-</div>
+</article>
+<?php
+// If comments are open or we have at least one comment, load up the comment template.
+if (comments_open() || get_comments_number()):
+	comments_template();
+endif;
+?>
+<?php
+endwhile;
+endif;
+wp_reset_query();
+?>
+<?php /* </ul> */ ?>
 
-</section>
-</div>
-<footer class="box-content">
-<a href="#" class="button">Get in touch</a>
-</footer>
+
+
+
+
+
+
 </div>
 
 
 </div>
-</div>
+
 <!--/article-->
 
 </main>
 <!--/main content-->
 <!--sidebar-->
-<aside class="small-12 medium-3 columns">
-<div class="row">
-	<!--box-->
-<div class="small-12 columns square box bottom-spaced"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3>Our <strong>Team</strong></h3></span></span></span><span class="box-overlay"></span><span class="box-image" style="background-image:url('<?php echo get_template_directory_uri(); ?>/images/team-bg.jpg');"></span></a></div></div>
-<!--/box-->
-	<!--box-->
-<div class="small-12 columns square box orange bottom-spaced"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3 class="success-icon">Our <strong>Success</strong></h3></span></span></span><span class="box-overlay"></span></a></div></div>
-<!--/box-->
-	<!--box-->
-<div class="small-12 columns square box"><div class="box-outer"><a href="#" class="box-link"><span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3>Our <strong>History</strong></h3></span></span></span><span class="box-overlay"></span><span class="box-image" style="background-image:url('<?php echo get_template_directory_uri(); ?>/images/our-history-bg.jpg');"></span></a></div></div>
-<!--/box-->
-</div>
-</aside>
+<?php get_sidebar('blog'); ?>
 <!--/sidebar-->
 </div>
 <!--/row-->
@@ -87,6 +78,4 @@
 </div>
 </section>
 <!--/row-->
-<?php endwhile ?>
-<?php endif ?>
 <?php get_footer() ?> 

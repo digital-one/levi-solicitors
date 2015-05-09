@@ -3,87 +3,53 @@
 <!--main content-->
 <main id="main" role="main" class="small-12 medium-9 columns">
 <div class="row">
-<!--header box-->
-<div class="small-12 columns bottom-spaced box padding-2x three-quarter">
-<?php
-$page = get_post(46);
-list($src,$w,$h) = wp_get_attachment_image_src(get_field('page_header_image',$page->ID),'header-image');
-?>
-<div class="box-outer" style="background-image:url('<?php echo $src ?>');">
-	<div class="box-content">
-		<span class="vcenter-wrap">
-			<span class="vcenter">
-<?php
-$title = $page->post_title;
-if (is_category()): 
-	$title =  single_cat_title();
-elseif (is_tag()):
-	$title = single_tag_title();
- elseif (is_day()):
-	$title = the_time('l, F j, Y'); 
-elseif (is_month()):
-	$title = the_time('F Y'); 
-elseif (is_year()):
-	$title = the_time('Y');
-endif;
-?>
-<h1><?php echo style_heading(get_queried_object()->name) ?></h1><a href="<?php echo get_permalink(14) ?>" class="button">Get in touch</a></span>
-		</span>
-	</div>
-	</div>
-</div>
-<!--/header box-->
+
 <!--article-->
 <div class="small-12 columns bottom-spaced box padding-2x end">
 	<div class="box-outer">
-<div class="box-content">
-<section id="posts" class="section">
-	<div class="posts">
-<?php
-	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+	<?php
 
-	//$paged = (get_query_var('page')) ? get_query_var('page') : 1;
-	/*
-	$args=array(
-		'post_type' => 'cpt_news',
-		'post_status' => 'publish',
-		'posts_per_page' => 10,
-		'tax_query' => array(
-            array(
-            	'taxonomy' =>'cptax_news_category',
-            	'field' => 'slug',
-            	'terms' =>  'equities'
-            	)
-            ),
-		'orderby' => 'date',
-		'order' => 'DESC'
-		);
-	query_posts($args);
-	*/
 		if(have_posts()):
 while (have_posts() ) : the_post(); 
-get_template_part('partials/content','news-loop' ); 
+$terms = wp_get_post_terms(get_the_ID(),'cptax_news_category');
+$current_term_id = $terms[0]->term_id;
+?>
+<article id="post" class="dotted-links">
+	<div class="box-content<?php if(!has_post_thumbnail(get_the_ID())): ?> no-bottom-padding<?php endif ?>">
+<header>
+<h1><strong><?php the_title() ?></strong></h1>
+<p><small>By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' )); ?>"><?php the_author_link( get_the_author_meta( 'ID' )) ?></a> on <time datetime="<?php the_time('Y-m-j') ?>"><?php the_time(__( 'F j, Y, H:i A' )) ?></time></small></p>
+</header>
+<?php the_content() ?>
+<?php if( has_tag()): ?>
+<footer><ul class="meta"><li><i class="fa fa-tag"></i><small><?php // echo $tag_list ;?><?php the_tags('',', ') ?></small></li></ul></footer>
+<?php endif ?>
+</div>
+<?php if(has_post_thumbnail( get_the_ID())): ?> 
+
+<figure>
+<?php
+list($src,$w,$h) = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'large-image');
+?>
+<img src="<?php echo $src ?>" />
+</figure>
+<?php endif ?>
+<div class="box-content">
+<a href="<?php echo get_term_link($terms[0]->term_id,'cptax_news_category');?>" class="button">back to articles</a>
+</div>
+</article>
+<?php
 endwhile;
 endif;
 wp_reset_query();
 ?>
 <?php /* </ul> */ ?>
-</div>
-<?php
-global $wp_query;
-$num_pages = $wp_query->max_num_pages;
-$current_term_id = 7;
-if(get_queried_object()):
-$current_term_id = get_queried_object()->term_id;
-endif;
-$next_page = $paged+1;
-$paging_permalink = get_term_link($current_term_id,'cptax_news_category');
-?>
-<?php /* posts_nav_link(' - ', '&laquo; Prev', 'Next &raquo;'); */ ?>
-<footer class="posts-footer"><a href="<?php echo $paging_permalink ?>page/<?php echo $next_page ?>/" class="button load-posts<?php if($paged >= $num_pages): ?> end<?php endif ?>"><i class="fa fa-cog fa-spin"></i> Load more posts</a></footer>
 
-</section>
-</div>
+
+
+
+
+
 
 </div>
 
@@ -122,9 +88,9 @@ if($term->term_id == $current_term_id) $current_term = 1;
 	<?php list($icon_png,$w,$h) = wp_get_attachment_image_src(get_field('icon_png',$term_obj),'full'); ?>
 	<!--box-->
 <div class="small-12 columns square box orange bottom-spaced<?php if($term['current']): ?> current<?php endif ?>"><div class="box-outer">
-	<?php if(!$term['current']): ?><a href="<?php echo $term_permalink ?>" title="<?php echo $term['name'] ?>" class="box-link"> <?php endif ?>
-<span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3><?php echo style_heading($term['name']) ?></strong></h3></span></span></span><span class="box-overlay"></span><span class="box-icon"><img src="<?php echo $icon_svg ?>" onerror="this.onerror=null; this.src='<?php echo $icon_png ?>'" /></span>
-<?php if(!$term['current']): ?></a><?php endif; ?>
+	<a href="<?php echo $term_permalink ?>" title="<?php echo $term['name'] ?>" class="box-link"> 
+<span class="box-content"><span class="vcenter-wrap"><span class="vcenter"><h3><?php echo style_heading($term['name']) ?></strong></h3></span></span></span><?php if(!$term['current']): ?><span class="box-overlay"></span><?php endif ?><span class="box-icon"><img src="<?php echo $icon_svg ?>" onerror="this.onerror=null; this.src='<?php echo $icon_png ?>'" /></span>
+</a>
 </div></div>
 <!--/box-->
 <?php

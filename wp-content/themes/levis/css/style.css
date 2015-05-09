@@ -4827,7 +4827,7 @@ ul.slick-dots li.slick-active button {
 }
 
 /* line 1, ../scss/components/_buttons.scss */
-.button {
+.button, .submit {
   display: inline-block;
   height: 38px;
   line-height: 38px;
@@ -4838,30 +4838,50 @@ ul.slick-dots li.slick-active button {
   font-size: 1.125rem;
   font-weight: 600;
   text-transform: uppercase;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
   padding: 0 20px;
   border: none !important;
 }
-/* line 13, ../scss/components/_buttons.scss */
-.button:hover, .button:active {
+/* line 14, ../scss/components/_buttons.scss */
+.button:hover, .button:active, .submit:hover, .submit:active {
   background-color: #ea9e00;
   color: #232726;
 }
-/* line 17, ../scss/components/_buttons.scss */
-.button.load-more {
+/* line 18, ../scss/components/_buttons.scss */
+.button.load-posts, .submit.load-posts {
   width: 100%;
   display: block;
 }
 /* line 21, ../scss/components/_buttons.scss */
-.button:focus {
+.button.load-posts i, .submit.load-posts i {
+  visibility: hidden;
+}
+/* line 24, ../scss/components/_buttons.scss */
+.button.load-posts.loading, .submit.load-posts.loading {
+  background-color: #f5f4f3;
+  color: #4d4d4d;
+}
+/* line 27, ../scss/components/_buttons.scss */
+.button.load-posts.loading i, .submit.load-posts.loading i {
+  visibility: visible;
+}
+/* line 31, ../scss/components/_buttons.scss */
+.button.load-posts.end, .submit.load-posts.end {
+  display: none;
+}
+/* line 35, ../scss/components/_buttons.scss */
+.button:focus, .submit:focus {
   outline: none;
   background-color: #ea9e00;
 }
 
 @media only screen and (min-width: 48rem) {
-  /* line 32, ../scss/components/_buttons.scss */
+  /* line 46, ../scss/components/_buttons.scss */
   .button {
-    height: 48px;
-    line-height: 48px;
+    height: 50px;
+    line-height: 50px;
     padding: 0 30px;
     font-size: 20px;
     font-size: 1.25rem;
@@ -4888,8 +4908,8 @@ textarea,
   display: block;
   font-size: 14px;
   font-size: 0.875rem;
-  height: 50px;
-  padding: 10px;
+  height: 38px;
+  padding: 5px 10px;
   width: 100% !important;
   box-sizing: border-box;
   -webkit-transition: background-color 0.1s linear 0s;
@@ -4912,14 +4932,22 @@ textarea::-webkit-input-placeholder,
   position: relative;
 }
 /* line 35, ../scss/components/_gravity-forms.scss */
-.gfield_contains_required input[type="text"]::-webkit-input-placeholder:after, .gfield_contains_required
+.gfield_contains_required input[type="text"]::-webkit-input-placeholder:after, .required input[type="text"]::-webkit-input-placeholder:after, .gfield_contains_required
+input[type="password"]::-webkit-input-placeholder:after, .required
 input[type="password"]::-webkit-input-placeholder:after, .gfield_contains_required
+input[type="email"]::-webkit-input-placeholder:after, .required
 input[type="email"]::-webkit-input-placeholder:after, .gfield_contains_required
+input[type="tel"]::-webkit-input-placeholder:after, .required
 input[type="tel"]::-webkit-input-placeholder:after, .gfield_contains_required
+input[type="number"]::-webkit-input-placeholder:after, .required
 input[type="number"]::-webkit-input-placeholder:after, .gfield_contains_required
+input[type="search"]::-webkit-input-placeholder:after, .required
 input[type="search"]::-webkit-input-placeholder:after, .gfield_contains_required
+select::-webkit-input-placeholder:after, .required
 select::-webkit-input-placeholder:after, .gfield_contains_required
+textarea::-webkit-input-placeholder:after, .required
 textarea::-webkit-input-placeholder:after, .gfield_contains_required
+.selectBox-dropdown::-webkit-input-placeholder:after, .required
 .selectBox-dropdown::-webkit-input-placeholder:after {
   content: "*";
   top: 0;
@@ -4944,14 +4972,22 @@ textarea::-moz-placeholder,
   position: relative;
 }
 /* line 35, ../scss/components/_gravity-forms.scss */
-.gfield_contains_required input[type="text"]::-moz-placeholder:after, .gfield_contains_required
+.gfield_contains_required input[type="text"]::-moz-placeholder:after, .required input[type="text"]::-moz-placeholder:after, .gfield_contains_required
+input[type="password"]::-moz-placeholder:after, .required
 input[type="password"]::-moz-placeholder:after, .gfield_contains_required
+input[type="email"]::-moz-placeholder:after, .required
 input[type="email"]::-moz-placeholder:after, .gfield_contains_required
+input[type="tel"]::-moz-placeholder:after, .required
 input[type="tel"]::-moz-placeholder:after, .gfield_contains_required
+input[type="number"]::-moz-placeholder:after, .required
 input[type="number"]::-moz-placeholder:after, .gfield_contains_required
+input[type="search"]::-moz-placeholder:after, .required
 input[type="search"]::-moz-placeholder:after, .gfield_contains_required
+select::-moz-placeholder:after, .required
 select::-moz-placeholder:after, .gfield_contains_required
+textarea::-moz-placeholder:after, .required
 textarea::-moz-placeholder:after, .gfield_contains_required
+.selectBox-dropdown::-moz-placeholder:after, .required
 .selectBox-dropdown::-moz-placeholder:after {
   content: "*";
   top: 0;
@@ -4976,14 +5012,22 @@ textarea:-moz-placeholder,
   position: relative;
 }
 /* line 35, ../scss/components/_gravity-forms.scss */
-.gfield_contains_required input[type="text"]:-moz-placeholder:after, .gfield_contains_required
+.gfield_contains_required input[type="text"]:-moz-placeholder:after, .required input[type="text"]:-moz-placeholder:after, .gfield_contains_required
+input[type="password"]:-moz-placeholder:after, .required
 input[type="password"]:-moz-placeholder:after, .gfield_contains_required
+input[type="email"]:-moz-placeholder:after, .required
 input[type="email"]:-moz-placeholder:after, .gfield_contains_required
+input[type="tel"]:-moz-placeholder:after, .required
 input[type="tel"]:-moz-placeholder:after, .gfield_contains_required
+input[type="number"]:-moz-placeholder:after, .required
 input[type="number"]:-moz-placeholder:after, .gfield_contains_required
+input[type="search"]:-moz-placeholder:after, .required
 input[type="search"]:-moz-placeholder:after, .gfield_contains_required
+select:-moz-placeholder:after, .required
 select:-moz-placeholder:after, .gfield_contains_required
+textarea:-moz-placeholder:after, .required
 textarea:-moz-placeholder:after, .gfield_contains_required
+.selectBox-dropdown:-moz-placeholder:after, .required
 .selectBox-dropdown:-moz-placeholder:after {
   content: "*";
   top: 0;
@@ -5008,14 +5052,22 @@ textarea:-ms-input-placeholder,
   position: relative;
 }
 /* line 35, ../scss/components/_gravity-forms.scss */
-.gfield_contains_required input[type="text"]:-ms-input-placeholder:after, .gfield_contains_required
+.gfield_contains_required input[type="text"]:-ms-input-placeholder:after, .required input[type="text"]:-ms-input-placeholder:after, .gfield_contains_required
+input[type="password"]:-ms-input-placeholder:after, .required
 input[type="password"]:-ms-input-placeholder:after, .gfield_contains_required
+input[type="email"]:-ms-input-placeholder:after, .required
 input[type="email"]:-ms-input-placeholder:after, .gfield_contains_required
+input[type="tel"]:-ms-input-placeholder:after, .required
 input[type="tel"]:-ms-input-placeholder:after, .gfield_contains_required
+input[type="number"]:-ms-input-placeholder:after, .required
 input[type="number"]:-ms-input-placeholder:after, .gfield_contains_required
+input[type="search"]:-ms-input-placeholder:after, .required
 input[type="search"]:-ms-input-placeholder:after, .gfield_contains_required
+select:-ms-input-placeholder:after, .required
 select:-ms-input-placeholder:after, .gfield_contains_required
+textarea:-ms-input-placeholder:after, .required
 textarea:-ms-input-placeholder:after, .gfield_contains_required
+.selectBox-dropdown:-ms-input-placeholder:after, .required
 .selectBox-dropdown:-ms-input-placeholder:after {
   content: "*";
   top: 0;
@@ -5133,7 +5185,7 @@ textarea:-ms-input-placeholder,
 /* line 53, ../scss/components/_gravity-forms.scss */
 textarea {
   padding: 10px;
-  height: auto;
+  height: 150px;
   resize: none;
 }
 
@@ -5384,8 +5436,33 @@ button {
   overflow: auto;
 }
 
+@media only screen and (min-width: 48rem) {
+  /* line 279, ../scss/components/_gravity-forms.scss */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea,
+  .selectBox-dropdown {
+    height: 50px;
+    padding: 10px;
+  }
+
+  /* line 291, ../scss/components/_gravity-forms.scss */
+  textarea {
+    height: 150px;
+  }
+
+  /* line 294, ../scss/components/_gravity-forms.scss */
+  .selectBox-dropdown {
+    padding: 0 10px;
+  }
+}
 @media only screen and (min-width: 64.0625rem) {
-  /* line 280, ../scss/components/_gravity-forms.scss */
+  /* line 300, ../scss/components/_gravity-forms.scss */
   .gform_wrapper {
     padding-top: 0;
   }
@@ -5611,30 +5688,34 @@ ul.meta li i {
   background-repeat: repeat-x;
 }
 /* line 34, ../scss/templates/_team.scss */
+.post:last-child {
+  background-image: none;
+}
+/* line 37, ../scss/templates/_team.scss */
 .post h4 {
   margin-bottom: 5px;
   font-weight: 400;
 }
-/* line 38, ../scss/templates/_team.scss */
+/* line 41, ../scss/templates/_team.scss */
 .post header {
   margin-bottom: 20px;
 }
-/* line 41, ../scss/templates/_team.scss */
+/* line 44, ../scss/templates/_team.scss */
 .post.tint {
   padding: 30px;
   background-image: none;
 }
-/* line 45, ../scss/templates/_team.scss */
+/* line 48, ../scss/templates/_team.scss */
 .post main {
   position: relative;
   margin-bottom: 10px;
 }
-/* line 50, ../scss/templates/_team.scss */
+/* line 53, ../scss/templates/_team.scss */
 .post.pic main {
   padding-right: 150px;
   min-height: 146px;
 }
-/* line 55, ../scss/templates/_team.scss */
+/* line 58, ../scss/templates/_team.scss */
 .post figure {
   display: block;
   background-color: white;
@@ -5653,7 +5734,7 @@ ul.meta li i {
   position: absolute;
   overflow: hidden;
 }
-/* line 63, ../scss/templates/_team.scss */
+/* line 66, ../scss/templates/_team.scss */
 .post figure a {
   display: block;
   cursor: pointer;
@@ -5661,25 +5742,25 @@ ul.meta li i {
   height: 100%;
   border: none !important;
 }
-/* line 70, ../scss/templates/_team.scss */
+/* line 73, ../scss/templates/_team.scss */
 .post figure img {
   width: auto;
   height: 100%;
 }
-/* line 76, ../scss/templates/_team.scss */
+/* line 79, ../scss/templates/_team.scss */
 .post footer {
   padding: 0;
 }
-/* line 80, ../scss/templates/_team.scss */
+/* line 83, ../scss/templates/_team.scss */
 .post.profile {
   position: relative;
   padding: 150px 0 0 0;
 }
-/* line 83, ../scss/templates/_team.scss */
+/* line 86, ../scss/templates/_team.scss */
 .post.profile.pic-top {
   padding: 80px 30px 30px;
 }
-/* line 86, ../scss/templates/_team.scss */
+/* line 89, ../scss/templates/_team.scss */
 .post.profile figure {
   top: 0;
   right: auto;
@@ -5694,15 +5775,15 @@ ul.meta li i {
   background-clip: padding-box;
   overflow: hidden;
 }
-/* line 91, ../scss/templates/_team.scss */
+/* line 94, ../scss/templates/_team.scss */
 .post.profile h4 {
   margin-bottom: 10px;
 }
-/* line 95, ../scss/templates/_team.scss */
+/* line 98, ../scss/templates/_team.scss */
 .post.profile.pic-top {
   padding: 90px 30px 30px;
 }
-/* line 97, ../scss/templates/_team.scss */
+/* line 100, ../scss/templates/_team.scss */
 .post.profile.pic-top figure {
   top: -72px;
   right: auto;
@@ -5711,18 +5792,18 @@ ul.meta li i {
   position: absolute;
 }
 
-/* line 105, ../scss/templates/_team.scss */
+/* line 108, ../scss/templates/_team.scss */
 #posts li:last-child .post {
   background-image: none;
 }
 
 @media only screen and (min-width: 48rem) {
-  /* line 114, ../scss/templates/_team.scss */
+  /* line 117, ../scss/templates/_team.scss */
   .profile {
     position: relative;
     padding: 0 0 0 180px;
   }
-  /* line 117, ../scss/templates/_team.scss */
+  /* line 120, ../scss/templates/_team.scss */
   .profile figure {
     top: 0;
     right: auto;
@@ -5737,12 +5818,51 @@ ul.meta li i {
     background-clip: padding-box;
     overflow: hidden;
   }
-  /* line 122, ../scss/templates/_team.scss */
+  /* line 125, ../scss/templates/_team.scss */
   .profile.pic-top {
     padding: 80px 30px 30px;
   }
-  /* line 125, ../scss/templates/_team.scss */
+  /* line 128, ../scss/templates/_team.scss */
   .profile footer {
     padding: 20px 0 0;
   }
+}
+/* line 2, ../scss/templates/_news.scss */
+#post h1 {
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 120%;
+  margin-bottom: 10px;
+}
+/* line 7, ../scss/templates/_news.scss */
+#post footer {
+  padding-top: 30px;
+}
+
+/* line 12, ../scss/templates/_news.scss */
+#categories ul, #recent-posts ul {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 130%;
+}
+/* line 15, ../scss/templates/_news.scss */
+#categories ul li, #recent-posts ul li {
+  margin-bottom: 5px;
+}
+
+/* line 20, ../scss/templates/_news.scss */
+form#search {
+  position: relative;
+}
+/* line 22, ../scss/templates/_news.scss */
+form#search input {
+  padding-right: 90px;
+}
+/* line 25, ../scss/templates/_news.scss */
+form#search .button {
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  position: absolute;
 }

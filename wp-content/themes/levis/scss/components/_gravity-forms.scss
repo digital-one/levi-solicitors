@@ -21,8 +21,8 @@ textarea,
   	//color: rgba(0, 0, 0, 0.75);
   	display: block;
   	@include font-size(14px);
-  	height: 50px;
-  	padding: 10px;
+  	height: 38px;
+  	padding: 5px 10px;
   	width: 100% !important;
   	box-sizing: border-box;
 	@include transition (background-color .1s linear 0s);
@@ -32,7 +32,7 @@ textarea,
     	color: $grey; 
     	position: relative;
     	&:after{
-    		.gfield_contains_required &{
+    		.gfield_contains_required &, .required &{
 				content:"*";
 				@include abs-pos(0,0,auto,auto);
 				z-index: 9999;
@@ -52,7 +52,7 @@ textarea,
 }
 textarea{
 	padding: 10px;
-	height: auto;
+	height: 150px;
 	resize: none;
 }
 button{
@@ -275,6 +275,26 @@ button{
 }
 	
 
+@media #{$medium-up} { 
+	input[type="text"], 
+	input[type="password"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"],
+	input[type="search"],
+	select,
+	textarea,
+	.selectBox-dropdown{
+		height:50px;
+		padding:10px;
+	}
+	textarea{
+		height: 150px;
+	}
+	.selectBox-dropdown{
+		padding:0 10px;
+	}
+}
 @media #{$large-up} { 
 
 	.gform_wrapper{

@@ -19,9 +19,9 @@ textarea,
   @include font-size(14px);
   font-family:$open_sans;
   font-weight: 700;
-  height: 50px;
-  margin: 0 0 10px 0;
-  padding: 10px;
+  height: 30px;
+  margin: 0 0 10px 0; 
+  padding: 5px;
   width: 100%;
   box-sizing: border-box;
 	@include transition (background-color .1s linear 0s);
@@ -46,4 +46,21 @@ button{
 	line-height:1;
 	text-align:center;
 	@include font-size(12px);
+}
+
+@media #{$medium-up} { 
+
+  input[type="text"], 
+  input[type="password"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea,
+  .selectBox-dropdown{
+    height:50px;
+    padding: 10px;
+  }
+
 }
